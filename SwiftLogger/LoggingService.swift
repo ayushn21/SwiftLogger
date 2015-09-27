@@ -36,6 +36,7 @@ final class LoggingService {
         let function: String
         let line: Int
         let message: String
+        let timestamp: NSDate
         
         init(_ message:String,
             level: String,
@@ -47,14 +48,14 @@ final class LoggingService {
                 self.function = function
                 self.line = line
                 self.message = message
+                self.timestamp = NSDate()
         }
     }
 
     
     func logMessage(message: Message) {
         queue.addOperationWithBlock { [unowned self] () -> Void in
-            let date = NSDate()
-            let dateString = self.dateFormatter.stringFromDate(date)
+            let dateString = self.dateFormatter.stringFromDate(message.timestamp)
             print("\(dateString)\t|\(message.level)|\t\(message.file):\(message.line)\t\(message.function) - \(message.message)")
         }
     }
