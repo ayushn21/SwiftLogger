@@ -27,7 +27,7 @@ final class LoggingService {
         queue.maxConcurrentOperationCount = 1;
         queue.qualityOfService = NSQualityOfService.Default
         dateFormatter.locale = NSLocale.currentLocale()
-        dateFormatter.dateFormat = "dd-MM-yyyyy HH:mm:ss.SSS"
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss.SSS"
     }
     
     struct Message {
