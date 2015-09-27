@@ -18,14 +18,17 @@ public enum LogLevel: Int {
 
 final class LoggingService {
 
-    private let queue = NSOperationQueue()
+    private let consoleQueue = NSOperationQueue()
+    private let fileQueue = NSOperationQueue()
     let dateFormatter = NSDateFormatter()
     
     var logLevel = LogLevel.Debug
     
     init() {
-        queue.maxConcurrentOperationCount = 1;
-        queue.qualityOfService = NSQualityOfService.Default
+        consoleQueue.maxConcurrentOperationCount = 1;
+        consoleQueue.qualityOfService = NSQualityOfService.Default
+        fileQueue.maxConcurrentOperationCount = 1;
+        fileQueue.qualityOfService = NSQualityOfService.Default
         dateFormatter.locale = NSLocale.currentLocale()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss.SSS"
     }
@@ -54,13 +57,17 @@ final class LoggingService {
 
     
     func logMessage(message: Message) {
-        queue.addOperationWithBlock { [unowned self] () -> Void in
-            let dateString = self.dateFormatter.stringFromDate(message.timestamp)
-            print("\(dateString)\t|\(message.level)|\t\(message.file):\(message.line)\t\(message.function) - \(message.message)")
+        consoleQueue.addOperationWithBlock { [unowned self] () -> Void in
+            print(self.formatMessage(message))
         }
     }
     
     func setDateFormat(format: String) {
         dateFormatter.dateFormat = format
+    }
+    
+    private func formatMessage(message: Message) -> String {
+        let dateString = self.dateFormatter.stringFromDate(message.timestamp)
+        return "\(dateString)\t|\(message.level)|\t\(message.file):\(message.line)\t\(message.function) - \(message.message)"
     }
 }
