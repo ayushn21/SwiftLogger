@@ -55,7 +55,7 @@ final class LoggingService {
         queue.addOperationWithBlock { [unowned self] () -> Void in
             let date = NSDate()
             let dateString = self.dateFormatter.stringFromDate(date)
-            print("\(dateString) | \(message.level) | \(message.file) | \(message.function):\(message.line) | \(message.message)")
+            print("\(dateString)\t|\(message.level)|\t\(message.file):\(message.line)\t\(message.function) - \(message.message)")
         }
     }
     
