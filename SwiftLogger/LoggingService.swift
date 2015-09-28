@@ -6,23 +6,13 @@
 //  Copyright © 2015 Spectrum. All rights reserved.
 //
 
-public enum LogLevel: Int {
-    case
-    Off = -1,
-    Info = 0,
-    Debug,
-    Warning,
-    Error,
-    Verbose
-}
-
 final class LoggingService {
 
     private let consoleQueue = NSOperationQueue()
     private let fileQueue = NSOperationQueue()
     let dateFormatter = NSDateFormatter()
     
-    var logLevel = LogLevel.Debug
+    var logLevel = SwiftLogger.LogLevel.Debug
     
     init() {
         consoleQueue.maxConcurrentOperationCount = 1;
@@ -64,6 +54,6 @@ final class LoggingService {
     
     private func formatMessage(message: Message) -> String {
         let dateString = self.dateFormatter.stringFromDate(message.timestamp)
-        return "\(dateString)\t|\(message.level)|\t\(message.file):\(message.line)\t\(message.function) - \(message.message)"
+        return "\(dateString)\t[\(message.level)]\t\(message.file):\(message.line)\t\(message.function): \(message.message)"
     }
 }
