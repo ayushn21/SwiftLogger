@@ -7,28 +7,38 @@
 //
 
 public class SwiftLogger {
-    public class func setLogLevel(level: LogLevel) {
-        Log.service.logLevel = level
+    
+    static let service = LoggingService()
+    
+    static var logLevel:LogLevel {
+        get {
+            return SwiftLogger.service.logLevel
+        }
+        set {
+            SwiftLogger.service.logLevel = newValue
+        }
     }
     
-    
-    public class func setDateFormat(format: String) {
-        Log.service.setDateFormat(format)
+    static var dateFormat:String {
+        get {
+            return SwiftLogger.service.dateFormatter.dateFormat
+        }
+        set {
+            SwiftLogger.service.dateFormatter.dateFormat = newValue
+        }
     }
-
 }
 
 public class Log {
-    static let service = LoggingService()
         
     public class func info(
         message:String,
         file:String = __FILE__,
         function:String = __FUNCTION__,
         line:Int = __LINE__) {
-        if service.logLevel.rawValue >= LogLevel.Info.rawValue {
+        if SwiftLogger.service.logLevel.rawValue >= LogLevel.Info.rawValue {
             let message = LoggingService.Message(message, level: "Info", file: file, function: function, line: line)
-            service.logMessage(message)
+            SwiftLogger.service.logMessage(message)
         }
     }
     
@@ -37,9 +47,9 @@ public class Log {
         file:NSString = __FILE__,
         function:String = __FUNCTION__,
         line:Int = __LINE__) {
-        if service.logLevel.rawValue >= LogLevel.Debug.rawValue {
+        if SwiftLogger.service.logLevel.rawValue >= LogLevel.Debug.rawValue {
             let message = LoggingService.Message(message, level: "Debug", file: file, function: function, line: line)
-            service.logMessage(message)
+            SwiftLogger.service.logMessage(message)
         }
     }
     
@@ -48,9 +58,9 @@ public class Log {
         file:NSString = __FILE__,
         function:String = __FUNCTION__,
         line:Int = __LINE__) {
-        if service.logLevel.rawValue >= LogLevel.Warning.rawValue {
+        if SwiftLogger.service.logLevel.rawValue >= LogLevel.Warning.rawValue {
             let message = LoggingService.Message(message, level: "Warning", file: file, function: function, line: line)
-            service.logMessage(message)
+            SwiftLogger.service.logMessage(message)
         }
     }
     
@@ -59,9 +69,9 @@ public class Log {
         file:NSString = __FILE__,
         function:String = __FUNCTION__,
         line:Int = __LINE__) {
-        if service.logLevel.rawValue >= LogLevel.Error.rawValue {
+        if SwiftLogger.service.logLevel.rawValue >= LogLevel.Error.rawValue {
             let message = LoggingService.Message(message, level: "Error", file: file, function: function, line: line)
-            service.logMessage(message)
+            SwiftLogger.service.logMessage(message)
         }
     }
     
@@ -70,9 +80,9 @@ public class Log {
         file:NSString = __FILE__,
         function:String = __FUNCTION__,
         line:Int = __LINE__) {
-        if service.logLevel.rawValue >= LogLevel.Verbose.rawValue {
+        if SwiftLogger.service.logLevel.rawValue >= LogLevel.Verbose.rawValue {
             let message = LoggingService.Message(message, level: "Verbose", file: file, function: function, line: line)
-            service.logMessage(message)
+            SwiftLogger.service.logMessage(message)
         }
     }
 }

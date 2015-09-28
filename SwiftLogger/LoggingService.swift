@@ -62,10 +62,6 @@ final class LoggingService {
         }
     }
     
-    func setDateFormat(format: String) {
-        dateFormatter.dateFormat = format
-    }
-    
     private func formatMessage(message: Message) -> String {
         let dateString = self.dateFormatter.stringFromDate(message.timestamp)
         return "\(dateString)\t|\(message.level)|\t\(message.file):\(message.line)\t\(message.function) - \(message.message)"
