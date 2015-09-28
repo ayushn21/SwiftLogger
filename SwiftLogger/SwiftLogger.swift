@@ -10,7 +10,7 @@ public class SwiftLogger {
     
     static let service = LoggingService()
     
-    static var logLevel:LogLevel {
+    public static var logLevel:LogLevel {
         get {
             return SwiftLogger.service.logLevel
         }
@@ -19,7 +19,7 @@ public class SwiftLogger {
         }
     }
     
-    static var dateFormat:String {
+    public static var dateFormat:String {
         get {
             return SwiftLogger.service.dateFormatter.dateFormat
         }
