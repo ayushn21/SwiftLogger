@@ -67,7 +67,7 @@ public class SwiftLogger {
 public class Log {
     
     /**
-        Log an *info* message. Use this sparingly for general information so avoid clogging up your logs.
+        Log an *info* message. Use this sparingly for general information to avoid clogging up your logs.
     
         - parameter message :A string for the log message
     */
