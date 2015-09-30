@@ -9,7 +9,6 @@
 final class LoggingService {
 
     private let consoleQueue = NSOperationQueue()
-    private let fileQueue = NSOperationQueue()
     let dateFormatter = NSDateFormatter()
     
     var logLevel = SwiftLogger.LogLevel.Debug
@@ -17,8 +16,6 @@ final class LoggingService {
     init() {
         consoleQueue.maxConcurrentOperationCount = 1;
         consoleQueue.qualityOfService = NSQualityOfService.Default
-        fileQueue.maxConcurrentOperationCount = 1;
-        fileQueue.qualityOfService = NSQualityOfService.Default
         dateFormatter.locale = NSLocale.currentLocale()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss.SSS"
     }
