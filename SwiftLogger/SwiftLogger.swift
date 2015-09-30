@@ -6,10 +6,23 @@
 //  Copyright © 2015 Spectrum. All rights reserved.
 //
 
+/// Static class containing utilities to set Logging settings
 public class SwiftLogger {
     
     static let service = LoggingService()
     
+    /**
+        Enum with the 6 possible log levels. In ascending order, the levels are:
+    
+        1) **Off**: Turn all logging off
+        2) **Info**: Log info messages only
+        3) **Debug**: Include debug messages as well
+        4) **Warning**: Include warnings
+        5) **Error**: Include error messages
+        6) **Verbose**: Include literally every log message
+    
+        Only log messages that are less than or equal to the set log level will be printed to the console.
+    */
     public enum LogLevel: Int {
         case
         Off = -1,
@@ -20,7 +33,12 @@ public class SwiftLogger {
         Verbose
     }
     
-    public static var logLevel:LogLevel {
+    /**
+        Get or Set the desired log level.
+        
+        - parameter logLevel :A value of `SwiftLogger.LogLevel`
+    */
+    public class var logLevel:LogLevel {
         get {
             return SwiftLogger.service.logLevel
         }
@@ -29,7 +47,13 @@ public class SwiftLogger {
         }
     }
     
-    public static var dateFormat:String {
+    /**
+        Get or Set the date format for the timestamp in the log message
+    
+        - parameter dateFormat :A string representing a date format that will be set on an `NSDateFormatter`
+    */
+
+    public class var dateFormat:String {
         get {
             return SwiftLogger.service.dateFormatter.dateFormat
         }
@@ -39,8 +63,14 @@ public class SwiftLogger {
     }
 }
 
+/// Static class containing all the logging methods
 public class Log {
-        
+    
+    /**
+        Log an *info* message. Use this sparingly for general information so avoid clogging up your logs.
+    
+        - parameter message :A string for the log message
+    */
     public class func info(
         message:String,
         file:String = __FILE__,
@@ -52,9 +82,14 @@ public class Log {
         }
     }
     
+    /**
+        Log a *debug* message. Use this to log anything that might be useful for debugging.
+    
+        - parameter message :A string for the log message
+    */
     public class func debug(
         message:String,
-        file:NSString = __FILE__,
+        file:String = __FILE__,
         function:String = __FUNCTION__,
         line:Int = __LINE__) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Debug.rawValue {
@@ -63,9 +98,14 @@ public class Log {
         }
     }
     
+    /**
+        Log a *warning* message. Use this to log a message if something might go wrong in your program's execution
+    
+        - parameter message :A string for the log message
+    */
     public class func warning(
         message:String,
-        file:NSString = __FILE__,
+        file:String = __FILE__,
         function:String = __FUNCTION__,
         line:Int = __LINE__) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Warning.rawValue {
@@ -74,9 +114,14 @@ public class Log {
         }
     }
     
+    /**
+        Log an *error* message. Use this to log information about something that has gone wrong.
+    
+        - parameter message :A string for the log message
+    */
     public class func error(
         message:String,
-        file:NSString = __FILE__,
+        file:String = __FILE__,
         function:String = __FUNCTION__,
         line:Int = __LINE__) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Error.rawValue {
@@ -85,9 +130,14 @@ public class Log {
         }
     }
     
+    /**
+        Log a *verbose* message. Use this to provide fine grained message about the code path executed by your program.
+    
+        - parameter message :A string for the log message
+    */
     public class func verbose(
         message:String,
-        file:NSString = __FILE__,
+        file:String = __FILE__,
         function:String = __FUNCTION__,
         line:Int = __LINE__) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Verbose.rawValue {
