@@ -29,6 +29,8 @@ The log level can be set using this method:
 
 The log level defaults to `Debug` if it has not been set. The `SwiftLogger.LogLevel` enum contains values for all 6 log level described above.
     
+I recommend you set the log level in your app delegate method `application:didFinishLaunchingWithOptions`. You could also vary the log level via a debug settings screen if you wish.
+
 #### Printing logs to the console
 
 Logs can be printed at the different log levels using these 5 methods
