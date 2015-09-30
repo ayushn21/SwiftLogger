@@ -3,7 +3,7 @@
 //  SwiftLogger
 //
 //  Created by Ayush Newatia on 27/09/2015.
-//  Copyright © 2015 Spectrum. All rights reserved.
+//  Copyright © 2015 Ayush Newatia. All rights reserved.
 //
 
 final class LoggingService {
