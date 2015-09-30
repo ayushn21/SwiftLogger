@@ -1,6 +1,6 @@
 ## Description
 
-SwiftLogger is designed to be a simple, easy to use, no frills logging library. It allows you to log messages at 6 different levels and formats log messages so you know exactly where and when they have been logged from.
+SwiftLogger is designed to be a simple, easy to use, no frills logging library. It allows you to log messages at 6 different levels and formats log messages so you know exactly where and when they have been logged from. This library has prioritised ease of use over extensibility.
 
 ## Usage
 
@@ -62,6 +62,10 @@ it, simply add the following lines to your Podfile:
 ## Documentation
 
 [Docs are available on CocoaDocs](http://cocoadocs.org/docsets/SwiftLogger/)
+
+## To-Do
+
+I am still working on a feature to log messages to a file in addition to the console.
 
 ## Author
 
