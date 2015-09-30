@@ -8,7 +8,7 @@ SwiftLogger is designed to be an easy to use, no frills logging library.
 
 ## Requirements
 
-SwiftLogger requires at least iOS 7 and ARC.
+SwiftLogger requires at least iOS 8 and ARC.
 
 ## Installation
 
