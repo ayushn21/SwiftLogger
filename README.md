@@ -69,7 +69,7 @@ I am still working on a feature to log messages to a file in addition to the con
 
 ## Author
 
-Ayush Newatia, ayush.newatia@icloud.com
+Ayush Newatia, [ayush.newatia@icloud.com](mailto:ayush.newatia@icloud.com)
 
 ## License
 
