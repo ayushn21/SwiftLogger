@@ -24,17 +24,17 @@ final class LoggingService {
         let level: String
         let file: String
         let function: String
-        let line: Int
+        let line: UInt
         let message: String
         let timestamp: NSDate
         
         init(_ message:String,
             level: String,
-            file:NSString,
+            file:String,
             function:String,
-            line:Int) {
+            line:UInt) {
                 self.level = level
-                self.file = file.lastPathComponent
+                self.file = (file as NSString).lastPathComponent
                 self.function = function
                 self.line = line
                 self.message = message
