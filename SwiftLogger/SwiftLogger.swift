@@ -75,7 +75,7 @@ public class Log {
         message:String,
         file:String = __FILE__,
         function:String = __FUNCTION__,
-        line:Int = __LINE__) {
+        line:UInt = __LINE__) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Info.rawValue {
             let message = LoggingService.Message(message, level: "Info", file: file, function: function, line: line)
             SwiftLogger.service.logMessage(message)
@@ -91,7 +91,7 @@ public class Log {
         message:String,
         file:String = __FILE__,
         function:String = __FUNCTION__,
-        line:Int = __LINE__) {
+        line:UInt = __LINE__) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Debug.rawValue {
             let message = LoggingService.Message(message, level: "Debug", file: file, function: function, line: line)
             SwiftLogger.service.logMessage(message)
@@ -107,7 +107,7 @@ public class Log {
         message:String,
         file:String = __FILE__,
         function:String = __FUNCTION__,
-        line:Int = __LINE__) {
+        line:UInt = __LINE__) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Warning.rawValue {
             let message = LoggingService.Message(message, level: "Warning", file: file, function: function, line: line)
             SwiftLogger.service.logMessage(message)
@@ -123,7 +123,7 @@ public class Log {
         message:String,
         file:String = __FILE__,
         function:String = __FUNCTION__,
-        line:Int = __LINE__) {
+        line:UInt = __LINE__) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Error.rawValue {
             let message = LoggingService.Message(message, level: "Error", file: file, function: function, line: line)
             SwiftLogger.service.logMessage(message)
@@ -139,7 +139,7 @@ public class Log {
         message:String,
         file:String = __FILE__,
         function:String = __FUNCTION__,
-        line:Int = __LINE__) {
+        line:UInt = __LINE__) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Verbose.rawValue {
             let message = LoggingService.Message(message, level: "Verbose", file: file, function: function, line: line)
             SwiftLogger.service.logMessage(message)
