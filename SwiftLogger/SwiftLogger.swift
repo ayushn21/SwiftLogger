@@ -15,10 +15,10 @@ public class SwiftLogger {
         Enum with the 6 possible log levels. In ascending order, the levels are:
     
         1) **Off**: Turn all logging off
-        2) **Info**: Log info messages only
-        3) **Debug**: Include debug messages as well
-        4) **Warning**: Include warnings
-        5) **Error**: Include error messages
+        2) **Error**: Include error messages
+        3) **Warning**: Include warnings
+        4) **Info**: Log info messages only
+        5) **Debug**: Include debug messages as well
         6) **Verbose**: Include literally every log message
     
         Only log messages that are less than or equal to the set log level will be printed to the console.
@@ -26,10 +26,10 @@ public class SwiftLogger {
     public enum LogLevel: Int {
         case
         Off = -1,
-        Info = 0,
-        Debug,
+        Error = 0,
         Warning,
-        Error,
+        Info,
+        Debug,
         Verbose
     }
     
