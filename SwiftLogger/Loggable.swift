@@ -19,3 +19,9 @@ extension NSObject : Loggable {
         return self.description
     }
 }
+
+extension String : Loggable {
+    public func log() -> String {
+        return self
+    }
+}
