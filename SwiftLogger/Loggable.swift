@@ -6,7 +6,7 @@
 //  Copyright © 2016 Spectrum. All rights reserved.
 //
 
-/// Protocol to log objects contained in arrays, dictionaries or sets
+/// Protocol to log objects contained in CollectionTypes except for Dictionaries
 public protocol Loggable {
     /**
      - Returns: A string representation of the object, used for logging purposes
