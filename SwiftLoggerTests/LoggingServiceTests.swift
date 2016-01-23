@@ -75,12 +75,4 @@ class LoggingServiceTests: XCTestCase {
         XCTAssertTrue(message.metadata.line == line, "The line string should be correctly set")
         XCTAssertNotNil(message.metadata.timestamp, "The date should have been created with the object")
     }
-    
-    func testMessageFormat() {
-        
-    }
-    
-    func testCollectionFormat() {
-        
-    }
 }
