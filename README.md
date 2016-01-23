@@ -41,7 +41,7 @@ Logs can be printed at the different log levels using these 5 methods
     Log.debug("This is a debug message.")
     Log.verbose("This is some very specific information")
     
-##### Log output
+#### Log output
 
 Log messages printed to the console will look like this:
 
