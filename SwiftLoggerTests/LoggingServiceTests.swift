@@ -34,16 +34,16 @@ class LoggingServiceTests: XCTestCase {
     func testMessageInitialiser() {
         let file: NSString = __FILE__
         let function = __FUNCTION__
-        let line = __LINE__
+        let line = __LINE__ as UInt
         
-        let message = LoggingService.Message("test", level: "Debug", file: file, function: function, line: line)
+        let message = Message("test", level: "Debug", file: file as String, function: function, line: line)
         
-        XCTAssertTrue(message.message == "test", "The log message should be correctly set")
-        XCTAssertTrue(message.level == "Debug", "The log level string should be correctly set")
-        XCTAssertTrue(message.file == file.lastPathComponent, "The file string should be correctly set")
-        XCTAssertTrue(message.function == function, "The function string should be correctly set")
-        XCTAssertTrue(message.line == line, "The line string should be correctly set")
-        XCTAssertNotNil(message.timestamp, "The date should have been created with the object")    
+        XCTAssertTrue(message.body == "test", "The log message should be correctly set")
+        XCTAssertTrue(message.metadata.level == "Debug", "The log level string should be correctly set")
+        XCTAssertTrue(message.metadata.file == file.lastPathComponent, "The file string should be correctly set")
+        XCTAssertTrue(message.metadata.function == function, "The function string should be correctly set")
+        XCTAssertTrue(message.metadata.line == line, "The line string should be correctly set")
+        XCTAssertNotNil(message.metadata.timestamp, "The date should have been created with the object")
     }
     
 }
