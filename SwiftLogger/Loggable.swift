@@ -25,3 +25,27 @@ extension String : Loggable {
         return self
     }
 }
+
+extension Int: Loggable {
+    public func log() -> String {
+        return "\(self)"
+    }
+}
+
+extension UInt: Loggable {
+    public func log() -> String {
+        return "\(self)"
+    }
+}
+
+extension Float: Loggable {
+    public func log() -> String {
+        return "\(self)"
+    }
+}
+
+extension Double: Loggable {
+    public func log() -> String {
+        return "\(self)"
+    }
+}
