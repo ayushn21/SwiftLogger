@@ -66,6 +66,8 @@ public class SwiftLogger {
 /// Static class containing all the logging methods
 public class Log {
     
+    // MARK: String Logging
+    
     /**
         Log an *info* message. Use this sparingly for general information to avoid clogging up your logs.
     
@@ -145,4 +147,6 @@ public class Log {
             SwiftLogger.service.logMessage(message)
         }
     }
+    
+    // MARK: Collection Logging
 }

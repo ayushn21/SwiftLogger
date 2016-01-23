@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AEA87241C5422E600E5DBB3 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEA87231C5422E600E5DBB3 /* Loggable.swift */; };
 		2AF92B9C1BAF67CD007B2676 /* SwiftLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AF92B9B1BAF67CD007B2676 /* SwiftLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2AF92BA31BAF67CD007B2676 /* SwiftLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF92B981BAF67CD007B2676 /* SwiftLogger.framework */; settings = {ASSET_TAGS = (); }; };
+		2AF92BA31BAF67CD007B2676 /* SwiftLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF92B981BAF67CD007B2676 /* SwiftLogger.framework */; };
 		2AF92BA81BAF67CD007B2676 /* LoggingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92BA71BAF67CD007B2676 /* LoggingServiceTests.swift */; };
-		2AF92BB31BB85AFA007B2676 /* SwiftLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92BB21BB85AFA007B2676 /* SwiftLogger.swift */; settings = {ASSET_TAGS = (); }; };
-		2AF92BB51BB85E0B007B2676 /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92BB41BB85E0B007B2676 /* LoggingService.swift */; settings = {ASSET_TAGS = (); }; };
-		2AF92BE01BBC9A85007B2676 /* SwiftLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92BDF1BBC9A85007B2676 /* SwiftLoggerTests.swift */; settings = {ASSET_TAGS = (); }; };
+		2AF92BB31BB85AFA007B2676 /* SwiftLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92BB21BB85AFA007B2676 /* SwiftLogger.swift */; };
+		2AF92BB51BB85E0B007B2676 /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92BB41BB85E0B007B2676 /* LoggingService.swift */; };
+		2AF92BE01BBC9A85007B2676 /* SwiftLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92BDF1BBC9A85007B2676 /* SwiftLoggerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AEA87231C5422E600E5DBB3 /* Loggable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loggable.swift; sourceTree = "<group>"; };
 		2AF92B981BAF67CD007B2676 /* SwiftLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF92B9B1BAF67CD007B2676 /* SwiftLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftLogger.h; sourceTree = "<group>"; };
 		2AF92B9D1BAF67CD007B2676 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				2AF92B9B1BAF67CD007B2676 /* SwiftLogger.h */,
 				2AF92BB21BB85AFA007B2676 /* SwiftLogger.swift */,
+				2AEA87231C5422E600E5DBB3 /* Loggable.swift */,
 				2AF92BB41BB85E0B007B2676 /* LoggingService.swift */,
 				2AF92B9D1BAF67CD007B2676 /* Info.plist */,
 			);
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AEA87241C5422E600E5DBB3 /* Loggable.swift in Sources */,
 				2AF92BB31BB85AFA007B2676 /* SwiftLogger.swift in Sources */,
 				2AF92BB51BB85E0B007B2676 /* LoggingService.swift in Sources */,
 			);
@@ -391,6 +395,7 @@
 				2AF92BAE1BAF67CD007B2676 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2AF92BAF1BAF67CD007B2676 /* Build configuration list for PBXNativeTarget "SwiftLoggerTests" */ = {
 			isa = XCConfigurationList;
@@ -399,6 +404,7 @@
 				2AF92BB11BAF67CD007B2676 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
