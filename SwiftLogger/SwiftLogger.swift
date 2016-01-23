@@ -69,6 +69,38 @@ public class Log {
     // MARK: String Logging
     
     /**
+        Log an *error* message. Use this to log information about something that has gone wrong.
+    
+        - parameter message :A string for the log message
+    */
+    public class func error(
+        message:String,
+        file:String = __FILE__,
+        function:String = __FUNCTION__,
+        line:UInt = __LINE__) {
+            if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Error.rawValue {
+                let message = Message(message, level: "Error", file: file, function: function, line: line)
+                SwiftLogger.service.logMessage(message)
+            }
+    }
+
+    /**
+        Log a *warning* message. Use this to log a message if something might go wrong in your program's execution
+     
+        - parameter message :A string for the log message
+     */
+    public class func warning(
+        message:String,
+        file:String = __FILE__,
+        function:String = __FUNCTION__,
+        line:UInt = __LINE__) {
+            if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Warning.rawValue {
+                let message = Message(message, level: "Warning", file: file, function: function, line: line)
+                SwiftLogger.service.logMessage(message)
+            }
+    }
+
+    /**
         Log an *info* message. Use this sparingly for general information to avoid clogging up your logs.
     
         - parameter message :A string for the log message
@@ -101,38 +133,6 @@ public class Log {
     }
     
     /**
-        Log a *warning* message. Use this to log a message if something might go wrong in your program's execution
-    
-        - parameter message :A string for the log message
-    */
-    public class func warning(
-        message:String,
-        file:String = __FILE__,
-        function:String = __FUNCTION__,
-        line:UInt = __LINE__) {
-        if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Warning.rawValue {
-            let message = Message(message, level: "Warning", file: file, function: function, line: line)
-            SwiftLogger.service.logMessage(message)
-        }
-    }
-    
-    /**
-        Log an *error* message. Use this to log information about something that has gone wrong.
-    
-        - parameter message :A string for the log message
-    */
-    public class func error(
-        message:String,
-        file:String = __FILE__,
-        function:String = __FUNCTION__,
-        line:UInt = __LINE__) {
-        if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Error.rawValue {
-            let message = Message(message, level: "Error", file: file, function: function, line: line)
-            SwiftLogger.service.logMessage(message)
-        }
-    }
-    
-    /**
         Log a *verbose* message. Use this to provide fine grained message about the code path executed by your program.
     
         - parameter message :A string for the log message
@@ -151,9 +151,41 @@ public class Log {
     // MARK: Collection Logging
     
     /**
+        Log a collection at *error* level. Use this to log information about something that has gone wrong.
+    
+        - parameter collection :A `CollectionType` of `Loggable` objects
+    */
+    public class func error<T: CollectionType where T.Generator.Element: Loggable>(
+        collection:T,
+        file:String = __FILE__,
+        function:String = __FUNCTION__,
+        line:UInt = __LINE__) {
+            if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Error.rawValue {
+                let metadata = MessageMetadata(level: "Info", file: file, function: function, line: line)
+                SwiftLogger.service.logCollection(collection, withMetadata: metadata)
+            }
+    }
+    
+    /**
+        Log a collection at *warning* level. Use this to log a collection if something might go wrong in your program's execution
+     
+        - parameter collection :A `CollectionType` of `Loggable` objects
+     */
+    public class func warning<T: CollectionType where T.Generator.Element: Loggable>(
+        collection:T,
+        file:String = __FILE__,
+        function:String = __FUNCTION__,
+        line:UInt = __LINE__) {
+            if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Warning.rawValue {
+                let metadata = MessageMetadata(level: "Info", file: file, function: function, line: line)
+                SwiftLogger.service.logCollection(collection, withMetadata: metadata)
+            }
+    }
+    
+    /**
         Log a collection at *info* level. Use this sparingly for general information to avoid clogging up your logs.
     
-        - parameter collection :A collection of *Loggable* objects
+        - parameter collection :A `CollectionType` of `Loggable` objects
     */
     public class func info<T: CollectionType where T.Generator.Element: Loggable>(
         collection:T,
@@ -165,5 +197,36 @@ public class Log {
                 SwiftLogger.service.logCollection(collection, withMetadata: metadata)
             }
     }
+    
+    /**
+        Log a collection at *debug* level. Use this to log anything that might be useful for debugging.
+     
+        - parameter collection :A `CollectionType` of `Loggable` objects
+     */
+    public class func debug<T: CollectionType where T.Generator.Element: Loggable>(
+        collection:T,
+        file:String = __FILE__,
+        function:String = __FUNCTION__,
+        line:UInt = __LINE__) {
+            if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Debug.rawValue {
+                let metadata = MessageMetadata(level: "Info", file: file, function: function, line: line)
+                SwiftLogger.service.logCollection(collection, withMetadata: metadata)
+            }
+    }
 
+    /**
+        Log a collection at *verbose* level. Use this to provide fine grained message about the code path executed by your program.
+     
+        - parameter collection :A `CollectionType` of `Loggable` objects
+     */
+    public class func verbose<T: CollectionType where T.Generator.Element: Loggable>(
+        collection:T,
+        file:String = __FILE__,
+        function:String = __FUNCTION__,
+        line:UInt = __LINE__) {
+            if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Verbose.rawValue {
+                let metadata = MessageMetadata(level: "Info", file: file, function: function, line: line)
+                SwiftLogger.service.logCollection(collection, withMetadata: metadata)
+            }
+    }
 }
