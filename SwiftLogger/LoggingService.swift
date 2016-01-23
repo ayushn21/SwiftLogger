@@ -68,17 +68,22 @@ final class LoggingService {
             (collection: T, withMetadata metadata: MessageMetadata) {
                 
         consoleQueue.addOperationWithBlock { [unowned self] () -> Void in
-            var messageString = "\n"
-            for element in collection {
-                messageString = "\(messageString)\t\(element.log())\n"
-            }
-            
+            let messageString = self.formatCollectionAsString(collection)
             let message = Message(messageString, metadata: metadata)
             print(self.formatMessage(message))
         }
     }
     
-    private func formatMessage(message: Message) -> String {
+    func formatCollectionAsString<T: CollectionType where T.Generator.Element: Loggable>
+        (collection: T) -> String {
+            var messageString = "\n"
+            for element in collection {
+                messageString = "\(messageString)\t\(element.log())\n"
+            }
+            return messageString
+    }
+    
+    func formatMessage(message: Message) -> String {
         let dateString = self.dateFormatter.stringFromDate(message.metadata.timestamp)
         return "\(dateString)\t[\(message.metadata.level)]\t\(message.metadata.file):\(message.metadata.line)\t\(message.metadata.function): \(message.body)"
     }
