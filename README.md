@@ -103,7 +103,7 @@ Initial Release
 
 ## To-Do
 
-I am still working on a feature to log messages to a file in addition to the console.
+I would like to build a feature to log messages to a file in addition to the console.
 Dictionary support also needs to be added to `CollectionType` logging.
 
 ## Author
