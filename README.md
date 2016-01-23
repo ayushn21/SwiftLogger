@@ -41,11 +41,38 @@ Logs can be printed at the different log levels using these 5 methods
     Log.debug("This is a debug message.")
     Log.verbose("This is some very specific information")
     
-#### Log output
+##### Log output
 
 Log messages printed to the console will look like this:
 
     28-09-2015 19:40:53.535 [Info]  ViewController.swift:16 viewDidLoad(): Info message
+    
+#### Logging Collections
+
+SwiftLogger has built in functionality to log collections and will not use up resources looping over a collection if it does not need to be logged for the current log level.
+
+To log objects in a collection, all the contained objects must conform to the `Loggable` protocol. It only contains one method of the following signature: `func log() -> String`. All `NSObjects` conform to this protocol and return it's `description` property by default. Most swift primitives conform to `Loggable` by default as well!
+
+Unfortunately logging of `Dictionaries` is not yet supported but is on the roadmap.
+
+The below code demonstrates how you can log collections to the console:
+	
+	    func collectionLoggingTest() {
+	        let anArray = ["one","two","three","four"]
+        	Log.debug(anArray)
+	    }
+	
+#### Collection Log Output
+
+Collection log messages look like this:
+
+	23-01-2016 23:35:15.528	[Info]	ViewController.swift:27	collectionLoggingTest(): 
+		one
+		two
+		three
+		four
+
+	
 
 ## Requirements
 
@@ -63,9 +90,21 @@ it, simply add the following lines to your Podfile:
 
 [Docs are available on CocoaDocs](http://cocoadocs.org/docsets/SwiftLogger/)
 
+## Release Notes
+
+####0.3.0
+Added a new feature to log `CollectionType`s. [ Except for `Dictionaries` :( ]
+
+####0.2.0
+Modified order of log levels.
+
+####0.1.0
+Initial Release
+
 ## To-Do
 
 I am still working on a feature to log messages to a file in addition to the console.
+Dictionary support also needs to be added to `CollectionType` logging.
 
 ## Author
 
