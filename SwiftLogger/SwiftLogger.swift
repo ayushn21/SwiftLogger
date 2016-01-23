@@ -161,7 +161,7 @@ public class Log {
         function:String = __FUNCTION__,
         line:UInt = __LINE__) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Error.rawValue {
-                let metadata = MessageMetadata(level: "Info", file: file, function: function, line: line)
+                let metadata = MessageMetadata(level: "Error", file: file, function: function, line: line)
                 SwiftLogger.service.logCollection(collection, withMetadata: metadata)
             }
     }
@@ -177,7 +177,7 @@ public class Log {
         function:String = __FUNCTION__,
         line:UInt = __LINE__) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Warning.rawValue {
-                let metadata = MessageMetadata(level: "Info", file: file, function: function, line: line)
+                let metadata = MessageMetadata(level: "Warning", file: file, function: function, line: line)
                 SwiftLogger.service.logCollection(collection, withMetadata: metadata)
             }
     }
@@ -209,7 +209,7 @@ public class Log {
         function:String = __FUNCTION__,
         line:UInt = __LINE__) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Debug.rawValue {
-                let metadata = MessageMetadata(level: "Info", file: file, function: function, line: line)
+                let metadata = MessageMetadata(level: "Debug", file: file, function: function, line: line)
                 SwiftLogger.service.logCollection(collection, withMetadata: metadata)
             }
     }
@@ -225,7 +225,7 @@ public class Log {
         function:String = __FUNCTION__,
         line:UInt = __LINE__) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Verbose.rawValue {
-                let metadata = MessageMetadata(level: "Info", file: file, function: function, line: line)
+                let metadata = MessageMetadata(level: "Verbose", file: file, function: function, line: line)
                 SwiftLogger.service.logCollection(collection, withMetadata: metadata)
             }
     }
