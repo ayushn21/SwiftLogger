@@ -66,7 +66,7 @@ The below code demonstrates how you can log collections to the console:
 
 Collection log messages look like this:
 
-	23-01-2016 23:35:15.528	[Info]	ViewController.swift:27	collectionLoggingTest(): 
+	23-01-2016 23:35:15.528	[Debug]	ViewController.swift:27	collectionLoggingTest(): 
 		one
 		two
 		three
