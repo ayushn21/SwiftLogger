@@ -12,11 +12,11 @@ import XCTest
 class SwiftLoggerTests: XCTestCase {
  
     func testSettingTheLogLevel() {
-        XCTAssertTrue(SwiftLogger.logLevel == SwiftLogger.LogLevel.Debug,
+        XCTAssertTrue(SwiftLogger.logLevel == .Debug,
             "The default log level should be debug")
         
-        SwiftLogger.logLevel = SwiftLogger.LogLevel.Verbose
-        XCTAssertTrue(SwiftLogger.logLevel == SwiftLogger.LogLevel.Verbose,
+        SwiftLogger.logLevel = .Verbose
+        XCTAssertTrue(SwiftLogger.logLevel == .Verbose,
             "The log level should correctly change to verbose")
     }
     
