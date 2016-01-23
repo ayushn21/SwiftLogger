@@ -25,9 +25,9 @@ Make sure you have the below line at the top of every file in which you would li
 
 The log level can be set using this method:
         
-    SwiftLogger.logLevel = SwiftLogger.LogLevel.Verbose
+    SwiftLogger.logLevel = .Verbose
 
-The log level defaults to `Debug` if it has not been set. The `SwiftLogger.LogLevel` enum contains values for all 6 log level described above.
+The log level defaults to `.Debug` if it has not been set. The `SwiftLogger.LogLevel` enum contains values for all 6 log level described above.
     
 I recommend you set the log level in your app delegate method `application:didFinishLaunchingWithOptions`. You could also vary the log level via a debug settings screen if you wish.
 
