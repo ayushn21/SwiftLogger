@@ -75,9 +75,9 @@ public class Log {
     */
     public class func error(
         message:String,
-        file:String = __FILE__,
-        function:String = __FUNCTION__,
-        line:UInt = __LINE__) {
+        file:String = #file,
+        function:String = #function,
+        line:UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Error.rawValue {
                 let message = Message(message, level: "Error", file: file, function: function, line: line)
                 SwiftLogger.service.logMessage(message)
@@ -91,9 +91,9 @@ public class Log {
      */
     public class func warning(
         message:String,
-        file:String = __FILE__,
-        function:String = __FUNCTION__,
-        line:UInt = __LINE__) {
+        file:String = #file,
+        function:String = #function,
+        line:UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Warning.rawValue {
                 let message = Message(message, level: "Warning", file: file, function: function, line: line)
                 SwiftLogger.service.logMessage(message)
@@ -107,9 +107,9 @@ public class Log {
     */
     public class func info(
         message:String,
-        file:String = __FILE__,
-        function:String = __FUNCTION__,
-        line:UInt = __LINE__) {
+        file:String = #file,
+        function:String = #function,
+        line:UInt = #line) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Info.rawValue {
             let message = Message(message, level: "Info", file: file, function: function, line: line)
             SwiftLogger.service.logMessage(message)
@@ -123,9 +123,9 @@ public class Log {
     */
     public class func debug(
         message:String,
-        file:String = __FILE__,
-        function:String = __FUNCTION__,
-        line:UInt = __LINE__) {
+        file:String = #file,
+        function:String = #function,
+        line:UInt = #line) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Debug.rawValue {
             let message = Message(message, level: "Debug", file: file, function: function, line: line)
             SwiftLogger.service.logMessage(message)
@@ -139,9 +139,9 @@ public class Log {
     */
     public class func verbose(
         message:String,
-        file:String = __FILE__,
-        function:String = __FUNCTION__,
-        line:UInt = __LINE__) {
+        file:String = #file,
+        function:String = #function,
+        line:UInt = #line) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Verbose.rawValue {
             let message = Message(message, level: "Verbose", file: file, function: function, line: line)
             SwiftLogger.service.logMessage(message)
@@ -157,9 +157,9 @@ public class Log {
     */
     public class func error<T: CollectionType where T.Generator.Element: Loggable>(
         collection:T,
-        file:String = __FILE__,
-        function:String = __FUNCTION__,
-        line:UInt = __LINE__) {
+        file:String = #file,
+        function:String = #function,
+        line:UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Error.rawValue {
                 let metadata = MessageMetadata(level: "Error", file: file, function: function, line: line)
                 SwiftLogger.service.logCollection(collection, withMetadata: metadata)
@@ -173,9 +173,9 @@ public class Log {
      */
     public class func warning<T: CollectionType where T.Generator.Element: Loggable>(
         collection:T,
-        file:String = __FILE__,
-        function:String = __FUNCTION__,
-        line:UInt = __LINE__) {
+        file:String = #file,
+        function:String = #function,
+        line:UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Warning.rawValue {
                 let metadata = MessageMetadata(level: "Warning", file: file, function: function, line: line)
                 SwiftLogger.service.logCollection(collection, withMetadata: metadata)
@@ -189,9 +189,9 @@ public class Log {
     */
     public class func info<T: CollectionType where T.Generator.Element: Loggable>(
         collection:T,
-        file:String = __FILE__,
-        function:String = __FUNCTION__,
-        line:UInt = __LINE__) {
+        file:String = #file,
+        function:String = #function,
+        line:UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Info.rawValue {
                 let metadata = MessageMetadata(level: "Info", file: file, function: function, line: line)
                 SwiftLogger.service.logCollection(collection, withMetadata: metadata)
@@ -205,9 +205,9 @@ public class Log {
      */
     public class func debug<T: CollectionType where T.Generator.Element: Loggable>(
         collection:T,
-        file:String = __FILE__,
-        function:String = __FUNCTION__,
-        line:UInt = __LINE__) {
+        file:String = #file,
+        function:String = #function,
+        line:UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Debug.rawValue {
                 let metadata = MessageMetadata(level: "Debug", file: file, function: function, line: line)
                 SwiftLogger.service.logCollection(collection, withMetadata: metadata)
@@ -221,9 +221,9 @@ public class Log {
      */
     public class func verbose<T: CollectionType where T.Generator.Element: Loggable>(
         collection:T,
-        file:String = __FILE__,
-        function:String = __FUNCTION__,
-        line:UInt = __LINE__) {
+        file:String = #file,
+        function:String = #function,
+        line:UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Verbose.rawValue {
                 let metadata = MessageMetadata(level: "Verbose", file: file, function: function, line: line)
                 SwiftLogger.service.logCollection(collection, withMetadata: metadata)

@@ -32,9 +32,9 @@ class LoggingServiceTests: XCTestCase {
     }
     
     func testMessageMetadataInitialiser() {
-        let file: NSString = __FILE__
-        let function = __FUNCTION__
-        let line = __LINE__ as UInt
+        let file: NSString = #file
+        let function = #function
+        let line = #line as UInt
         
         let metadata = MessageMetadata(level: "Debug", file: file as String, function: function, line: line)
         
@@ -46,9 +46,9 @@ class LoggingServiceTests: XCTestCase {
     }
     
     func testMessageInitialiser() {
-        let file: NSString = __FILE__
-        let function = __FUNCTION__
-        let line = __LINE__ as UInt
+        let file: NSString = #file
+        let function = #function
+        let line = #line as UInt
         
         let message = Message("test", level: "Debug", file: file as String, function: function, line: line)
         
@@ -61,9 +61,9 @@ class LoggingServiceTests: XCTestCase {
     }
     
     func testMessageInitialiserWithMetdata() {
-        let file: NSString = __FILE__
-        let function = __FUNCTION__
-        let line = __LINE__ as UInt
+        let file: NSString = #file
+        let function = #function
+        let line = #line as UInt
         
         let metadata = MessageMetadata(level: "Debug", file: file as String, function: function, line: line)
         let message = Message("test", metadata: metadata)
