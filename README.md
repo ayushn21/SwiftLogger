@@ -92,6 +92,12 @@ it, simply add the following lines to your Podfile:
 
 ## Release Notes
 
+####0.3.2
+Fixed deprecation warnings in Swift 2.2. Added more unit tests.
+
+####0.3.1
+Fixing a documentation error.
+
 ####0.3.0
 Added a new feature to log `CollectionType`s. [ Except for `Dictionaries` :( ]
 
