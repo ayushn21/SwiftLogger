@@ -9,7 +9,7 @@
 /// Static class containing utilities to set Logging settings
 public class SwiftLogger {
     
-    static let service = LoggingService()
+    static var service: Logger = LoggingService()
     
     /**
         Enum with the 6 possible log levels. In ascending order, the levels are:

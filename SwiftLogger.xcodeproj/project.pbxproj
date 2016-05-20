@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2AEA87241C5422E600E5DBB3 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEA87231C5422E600E5DBB3 /* Loggable.swift */; };
+		2AF476931CEFC43A0094B0DF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF476921CEFC43A0094B0DF /* Message.swift */; };
 		2AF92B9C1BAF67CD007B2676 /* SwiftLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AF92B9B1BAF67CD007B2676 /* SwiftLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AF92BA31BAF67CD007B2676 /* SwiftLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF92B981BAF67CD007B2676 /* SwiftLogger.framework */; };
 		2AF92BA81BAF67CD007B2676 /* LoggingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF92BA71BAF67CD007B2676 /* LoggingServiceTests.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		2AEA87231C5422E600E5DBB3 /* Loggable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loggable.swift; sourceTree = "<group>"; };
+		2AF476921CEFC43A0094B0DF /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2AF92B981BAF67CD007B2676 /* SwiftLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF92B9B1BAF67CD007B2676 /* SwiftLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftLogger.h; sourceTree = "<group>"; };
 		2AF92B9D1BAF67CD007B2676 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				2AF92BB21BB85AFA007B2676 /* SwiftLogger.swift */,
 				2AEA87231C5422E600E5DBB3 /* Loggable.swift */,
 				2AF92BB41BB85E0B007B2676 /* LoggingService.swift */,
+				2AF476921CEFC43A0094B0DF /* Message.swift */,
 				2AF92B9D1BAF67CD007B2676 /* Info.plist */,
 			);
 			path = SwiftLogger;
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AEA87241C5422E600E5DBB3 /* Loggable.swift in Sources */,
+				2AF476931CEFC43A0094B0DF /* Message.swift in Sources */,
 				2AF92BB31BB85AFA007B2676 /* SwiftLogger.swift in Sources */,
 				2AF92BB51BB85E0B007B2676 /* LoggingService.swift in Sources */,
 			);
