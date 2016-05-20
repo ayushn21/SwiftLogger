@@ -44,7 +44,15 @@ struct MessageMetadata {
     }
 }
 
-final class LoggingService {
+protocol Logger {
+    var logLevel: SwiftLogger.LogLevel {get set}
+    
+    func logMessage(message: Message)
+    func logCollection<T: CollectionType where T.Generator.Element: Loggable>
+        (collection: T, withMetadata metadata: MessageMetadata)
+}
+
+final class LoggingService: Logger {
 
     private let consoleQueue = NSOperationQueue()
     let dateFormatter = NSDateFormatter()
