@@ -30,15 +30,14 @@ extension Logger {
         let dateString = self.dateFormatter.stringFromDate(message.metadata.timestamp)
         return "\(dateString)\t[\(message.metadata.level)]\t\(message.metadata.file):\(message.metadata.line)\t\(message.metadata.function): \(message.body)"
     }
-
 }
 
 final class LoggingService: Logger {
 
-    private let consoleQueue = NSOperationQueue()
     let dateFormatter = NSDateFormatter()
-    
     var logLevel = SwiftLogger.LogLevel.Debug
+    
+    private let consoleQueue = NSOperationQueue()
     
     init() {
         consoleQueue.maxConcurrentOperationCount = 1;
