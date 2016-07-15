@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29ACC06F1D38F2F7008F220C /* MessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ACC06E1D38F2F7008F220C /* MessageTests.swift */; };
 		2AEA87241C5422E600E5DBB3 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEA87231C5422E600E5DBB3 /* Loggable.swift */; };
 		2AF476931CEFC43A0094B0DF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF476921CEFC43A0094B0DF /* Message.swift */; };
 		2AF92B9C1BAF67CD007B2676 /* SwiftLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AF92B9B1BAF67CD007B2676 /* SwiftLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29ACC06E1D38F2F7008F220C /* MessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTests.swift; sourceTree = "<group>"; };
 		2AEA87231C5422E600E5DBB3 /* Loggable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loggable.swift; sourceTree = "<group>"; };
 		2AF476921CEFC43A0094B0DF /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2AF92B981BAF67CD007B2676 /* SwiftLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 			children = (
 				2AF92BA71BAF67CD007B2676 /* LoggingServiceTests.swift */,
 				2AF92BDF1BBC9A85007B2676 /* SwiftLoggerTests.swift */,
+				29ACC06E1D38F2F7008F220C /* MessageTests.swift */,
 				2AF92BA91BAF67CD007B2676 /* Info.plist */,
 			);
 			path = SwiftLoggerTests;
@@ -221,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AF92BA81BAF67CD007B2676 /* LoggingServiceTests.swift in Sources */,
+				29ACC06F1D38F2F7008F220C /* MessageTests.swift in Sources */,
 				2AF92BE01BBC9A85007B2676 /* SwiftLoggerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
