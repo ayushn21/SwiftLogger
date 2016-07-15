@@ -74,12 +74,12 @@ public class Log {
         - parameter message :A string for the log message
     */
     public class func error(
-        message:String,
+        message:Loggable,
         file:String = #file,
         function:String = #function,
         line:UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Error.rawValue {
-                let message = Message(message, level: "Error", file: file, function: function, line: line)
+                let message = Message(message.log(), level: "Error", file: file, function: function, line: line)
                 SwiftLogger.service.logMessage(message)
             }
     }
@@ -90,12 +90,12 @@ public class Log {
         - parameter message :A string for the log message
      */
     public class func warning(
-        message:String,
+        message:Loggable,
         file:String = #file,
         function:String = #function,
         line:UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Warning.rawValue {
-                let message = Message(message, level: "Warning", file: file, function: function, line: line)
+                let message = Message(message.log(), level: "Warning", file: file, function: function, line: line)
                 SwiftLogger.service.logMessage(message)
             }
     }
@@ -106,12 +106,12 @@ public class Log {
         - parameter message :A string for the log message
     */
     public class func info(
-        message:String,
+        message:Loggable,
         file:String = #file,
         function:String = #function,
         line:UInt = #line) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Info.rawValue {
-            let message = Message(message, level: "Info", file: file, function: function, line: line)
+            let message = Message(message.log(), level: "Info", file: file, function: function, line: line)
             SwiftLogger.service.logMessage(message)
         }
     }
@@ -122,12 +122,12 @@ public class Log {
         - parameter message :A string for the log message
     */
     public class func debug(
-        message:String,
+        message:Loggable,
         file:String = #file,
         function:String = #function,
         line:UInt = #line) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Debug.rawValue {
-            let message = Message(message, level: "Debug", file: file, function: function, line: line)
+            let message = Message(message.log(), level: "Debug", file: file, function: function, line: line)
             SwiftLogger.service.logMessage(message)
         }
     }
@@ -138,12 +138,12 @@ public class Log {
         - parameter message :A string for the log message
     */
     public class func verbose(
-        message:String,
+        message:Loggable,
         file:String = #file,
         function:String = #function,
         line:UInt = #line) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Verbose.rawValue {
-            let message = Message(message, level: "Verbose", file: file, function: function, line: line)
+            let message = Message(message.log(), level: "Verbose", file: file, function: function, line: line)
             SwiftLogger.service.logMessage(message)
         }
     }
