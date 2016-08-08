@@ -22,5 +22,5 @@ final class MockLoggingService: Logger {
     func logMessage(message: Message) {}
     
     func logCollection<T: CollectionType where T.Generator.Element: Loggable>
-        (collection: T, withMetadata metadata: MessageMetadata) {}
+        (collection: T, prefix: String, withMetadata metadata: MessageMetadata) {}
 }

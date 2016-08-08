@@ -13,7 +13,7 @@ protocol Logger {
     
     func logMessage(message: Message)
     func logCollection<T: CollectionType where T.Generator.Element: Loggable>
-        (collection: T, withMetadata metadata: MessageMetadata)
+        (collection: T, prefix: String, withMetadata metadata: MessageMetadata)
 }
 
 extension Logger {
@@ -53,11 +53,11 @@ final class LoggingService: Logger {
     }
     
     func logCollection<T: CollectionType where T.Generator.Element: Loggable>
-            (collection: T, withMetadata metadata: MessageMetadata) {
+        (collection: T, prefix: String, withMetadata metadata: MessageMetadata) {
                 
         consoleQueue.addOperationWithBlock { [unowned self] () -> Void in
             let messageString = self.formatCollectionAsString(collection)
-            let message = Message(messageString, metadata: metadata)
+            let message = Message(prefix + messageString, metadata: metadata)
             print(self.formatMessage(message))
         }
     }

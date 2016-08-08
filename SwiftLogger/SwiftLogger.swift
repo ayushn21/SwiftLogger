@@ -74,10 +74,10 @@ public class Log {
         - parameter message :A string for the log message
     */
     public class func error(
-        message:Loggable,
-        file:String = #file,
-        function:String = #function,
-        line:UInt = #line) {
+        message: Loggable,
+        file: String = #file,
+        function: String = #function,
+        line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Error.rawValue {
                 let message = Message(message.log(), level: "Error", file: file, function: function, line: line)
                 SwiftLogger.service.logMessage(message)
@@ -90,10 +90,10 @@ public class Log {
         - parameter message :A string for the log message
      */
     public class func warning(
-        message:Loggable,
-        file:String = #file,
-        function:String = #function,
-        line:UInt = #line) {
+        message: Loggable,
+        file: String = #file,
+        function: String = #function,
+        line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Warning.rawValue {
                 let message = Message(message.log(), level: "Warning", file: file, function: function, line: line)
                 SwiftLogger.service.logMessage(message)
@@ -106,10 +106,10 @@ public class Log {
         - parameter message :A string for the log message
     */
     public class func info(
-        message:Loggable,
-        file:String = #file,
-        function:String = #function,
-        line:UInt = #line) {
+        message: Loggable,
+        file: String = #file,
+        function: String = #function,
+        line: UInt = #line) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Info.rawValue {
             let message = Message(message.log(), level: "Info", file: file, function: function, line: line)
             SwiftLogger.service.logMessage(message)
@@ -122,10 +122,10 @@ public class Log {
         - parameter message :A string for the log message
     */
     public class func debug(
-        message:Loggable,
-        file:String = #file,
-        function:String = #function,
-        line:UInt = #line) {
+        message: Loggable,
+        file: String = #file,
+        function: String = #function,
+        line: UInt = #line) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Debug.rawValue {
             let message = Message(message.log(), level: "Debug", file: file, function: function, line: line)
             SwiftLogger.service.logMessage(message)
@@ -138,10 +138,10 @@ public class Log {
         - parameter message :A string for the log message
     */
     public class func verbose(
-        message:Loggable,
-        file:String = #file,
-        function:String = #function,
-        line:UInt = #line) {
+        message: Loggable,
+        file: String = #file,
+        function: String = #function,
+        line: UInt = #line) {
         if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Verbose.rawValue {
             let message = Message(message.log(), level: "Verbose", file: file, function: function, line: line)
             SwiftLogger.service.logMessage(message)
@@ -156,13 +156,14 @@ public class Log {
         - parameter collection :A `CollectionType` of `Loggable` objects
     */
     public class func error<T: CollectionType where T.Generator.Element: Loggable>(
-        collection:T,
-        file:String = #file,
-        function:String = #function,
-        line:UInt = #line) {
+        prefix: String = "",
+        collection: T,
+        file: String = #file,
+        function: String = #function,
+        line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Error.rawValue {
                 let metadata = MessageMetadata(level: "Error", file: file, function: function, line: line)
-                SwiftLogger.service.logCollection(collection, withMetadata: metadata)
+                SwiftLogger.service.logCollection(collection, prefix: prefix, withMetadata: metadata)
             }
     }
     
@@ -172,13 +173,14 @@ public class Log {
         - parameter collection :A `CollectionType` of `Loggable` objects
      */
     public class func warning<T: CollectionType where T.Generator.Element: Loggable>(
-        collection:T,
-        file:String = #file,
-        function:String = #function,
-        line:UInt = #line) {
+        prefix: String = "",
+        collection: T,
+        file: String = #file,
+        function: String = #function,
+        line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Warning.rawValue {
                 let metadata = MessageMetadata(level: "Warning", file: file, function: function, line: line)
-                SwiftLogger.service.logCollection(collection, withMetadata: metadata)
+                SwiftLogger.service.logCollection(collection, prefix: prefix, withMetadata: metadata)
             }
     }
     
@@ -188,13 +190,14 @@ public class Log {
         - parameter collection :A `CollectionType` of `Loggable` objects
     */
     public class func info<T: CollectionType where T.Generator.Element: Loggable>(
-        collection:T,
-        file:String = #file,
-        function:String = #function,
-        line:UInt = #line) {
+        prefix: String = "",
+        collection: T,
+        file: String = #file,
+        function: String = #function,
+        line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Info.rawValue {
                 let metadata = MessageMetadata(level: "Info", file: file, function: function, line: line)
-                SwiftLogger.service.logCollection(collection, withMetadata: metadata)
+                SwiftLogger.service.logCollection(collection, prefix: prefix, withMetadata: metadata)
             }
     }
     
@@ -204,13 +207,14 @@ public class Log {
         - parameter collection :A `CollectionType` of `Loggable` objects
      */
     public class func debug<T: CollectionType where T.Generator.Element: Loggable>(
-        collection:T,
-        file:String = #file,
-        function:String = #function,
-        line:UInt = #line) {
+        prefix: String = "",
+        collection: T,
+        file: String = #file,
+        function: String = #function,
+        line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Debug.rawValue {
                 let metadata = MessageMetadata(level: "Debug", file: file, function: function, line: line)
-                SwiftLogger.service.logCollection(collection, withMetadata: metadata)
+                SwiftLogger.service.logCollection(collection, prefix: prefix, withMetadata: metadata)
             }
     }
 
@@ -220,13 +224,14 @@ public class Log {
         - parameter collection :A `CollectionType` of `Loggable` objects
      */
     public class func verbose<T: CollectionType where T.Generator.Element: Loggable>(
-        collection:T,
-        file:String = #file,
-        function:String = #function,
-        line:UInt = #line) {
+        prefix: String = "",
+        collection: T,
+        file: String = #file,
+        function: String = #function,
+        line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Verbose.rawValue {
                 let metadata = MessageMetadata(level: "Verbose", file: file, function: function, line: line)
-                SwiftLogger.service.logCollection(collection, withMetadata: metadata)
+                SwiftLogger.service.logCollection(collection, prefix: prefix, withMetadata: metadata)
             }
     }
 }
