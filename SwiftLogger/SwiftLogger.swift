@@ -64,7 +64,7 @@ public class SwiftLogger {
 }
 
 /// Static class containing all the logging methods
-public class Log {
+final public class Log {
     
     // MARK: String Logging
     
