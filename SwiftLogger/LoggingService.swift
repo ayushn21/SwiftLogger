@@ -14,6 +14,10 @@ protocol Logger {
     func logMessage(message: Message)
     func logCollection<T: CollectionType where T.Generator.Element: Loggable>
         (collection: T, prefix: String, withMetadata metadata: MessageMetadata)
+    func logCollection<Key:Loggable,
+                       Value: Loggable,
+                       T: CollectionType where T.Generator.Element == (Key, Value)>
+        (collection: T, prefix: String, withMetadata metadata: MessageMetadata)
 }
 
 extension Logger {
@@ -24,6 +28,18 @@ extension Logger {
                 messageString = "\(messageString)\t\(element.log())\n"
             }
             return messageString
+    }
+    
+    func formatCollectionAsString<Key:Loggable,
+                                  Value: Loggable,
+                                  T: CollectionType where T.Generator.Element == (Key, Value)>
+        (collection: T) -> String {
+        var messageString = "\n"
+        
+        for element in collection {
+            messageString = "\(messageString)\t\(element.0.log()) : \(element.1.log())\n"
+        }
+        return messageString
     }
     
     func formatMessage(message: Message) -> String {
@@ -55,6 +71,17 @@ final class LoggingService: Logger {
     func logCollection<T: CollectionType where T.Generator.Element: Loggable>
         (collection: T, prefix: String, withMetadata metadata: MessageMetadata) {
                 
+        consoleQueue.addOperationWithBlock { [unowned self] () -> Void in
+            let messageString = self.formatCollectionAsString(collection)
+            let message = Message(prefix + messageString, metadata: metadata)
+            print(self.formatMessage(message))
+        }
+    }
+    
+    func logCollection<Key:Loggable,
+                       Value: Loggable,
+                       T: CollectionType where T.Generator.Element == (Key, Value)>
+        (collection: T, prefix: String, withMetadata metadata: MessageMetadata) {
         consoleQueue.addOperationWithBlock { [unowned self] () -> Void in
             let messageString = self.formatCollectionAsString(collection)
             let message = Message(prefix + messageString, metadata: metadata)

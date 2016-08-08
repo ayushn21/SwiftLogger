@@ -154,6 +154,7 @@ public class Log {
         Log a collection at *error* level. Use this to log information about something that has gone wrong.
     
         - parameter collection :A `CollectionType` of `Loggable` objects
+        - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
     */
     public class func error<T: CollectionType where T.Generator.Element: Loggable>(
         collection: T,
@@ -171,6 +172,7 @@ public class Log {
         Log a collection at *warning* level. Use this to log a collection if something might go wrong in your program's execution
      
         - parameter collection :A `CollectionType` of `Loggable` objects
+        - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
      */
     public class func warning<T: CollectionType where T.Generator.Element: Loggable>(
         collection: T,
@@ -188,6 +190,7 @@ public class Log {
         Log a collection at *info* level. Use this sparingly for general information to avoid clogging up your logs.
     
         - parameter collection :A `CollectionType` of `Loggable` objects
+        - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
     */
     public class func info<T: CollectionType where T.Generator.Element: Loggable>(
         collection: T,
@@ -205,6 +208,7 @@ public class Log {
         Log a collection at *debug* level. Use this to log anything that might be useful for debugging.
      
         - parameter collection :A `CollectionType` of `Loggable` objects
+        - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
      */
     public class func debug<T: CollectionType where T.Generator.Element: Loggable>(
         collection: T,
@@ -222,6 +226,7 @@ public class Log {
         Log a collection at *verbose* level. Use this to provide fine grained message about the code path executed by your program.
      
         - parameter collection :A `CollectionType` of `Loggable` objects
+        - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
      */
     public class func verbose<T: CollectionType where T.Generator.Element: Loggable>(
         collection: T,
@@ -233,5 +238,107 @@ public class Log {
                 let metadata = MessageMetadata(level: "Verbose", file: file, function: function, line: line)
                 SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
             }
+    }
+    
+    // MARK: Dictionary Logging
+    
+    /**
+     Log a collection at *error* level. Use this to log information about something that has gone wrong.
+     
+     - parameter collection :A `CollectionType` where the generator returns a 2 element tuple of Loggables. For example, a dictionary
+     - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
+     */
+    public class func error<Key:Loggable,
+                            Value: Loggable,
+                            T: CollectionType where T.Generator.Element == (Key, Value)>(
+        collection: T,
+        prefix: Loggable = "",
+        file: String = #file,
+        function: String = #function,
+        line: UInt = #line) {
+        if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Error.rawValue {
+            let metadata = MessageMetadata(level: "Error", file: file, function: function, line: line)
+            SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
+        }
+    }
+    
+    /**
+     Log a collection at *warning* level. Use this to log a collection if something might go wrong in your program's execution
+     
+     - parameter collection :A `CollectionType` where the generator returns a 2 element tuple of Loggables. For example, a dictionary
+     - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
+     */
+    public class func warning<Key:Loggable,
+                              Value: Loggable,
+                              T: CollectionType where T.Generator.Element == (Key, Value)>(
+        collection: T,
+        prefix: Loggable = "",
+        file: String = #file,
+        function: String = #function,
+        line: UInt = #line) {
+        if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Warning.rawValue {
+            let metadata = MessageMetadata(level: "Warning", file: file, function: function, line: line)
+            SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
+        }
+    }
+    
+    /**
+     Log a collection at *info* level. Use this sparingly for general information to avoid clogging up your logs.
+     
+     - parameter collection :A `CollectionType` where the generator returns a 2 element tuple of Loggables. For example, a dictionary
+     - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
+     */
+    public class func info<Key:Loggable,
+                           Value: Loggable,
+                           T: CollectionType where T.Generator.Element == (Key, Value)>(
+        collection: T,
+        prefix: Loggable = "",
+        file: String = #file,
+        function: String = #function,
+        line: UInt = #line) {
+        if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Info.rawValue {
+            let metadata = MessageMetadata(level: "Info", file: file, function: function, line: line)
+            SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
+        }
+    }
+    
+    /**
+     Log a collection at *debug* level. Use this to log anything that might be useful for debugging.
+     
+     - parameter collection :A `CollectionType` where the generator returns a 2 element tuple of Loggables. For example, a dictionary
+     - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
+     */
+    public class func debug<Key:Loggable,
+                            Value: Loggable,
+                            T: CollectionType where T.Generator.Element == (Key, Value)>(
+        collection: T,
+        prefix: Loggable = "",
+        file: String = #file,
+        function: String = #function,
+        line: UInt = #line) {
+        if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Debug.rawValue {
+            let metadata = MessageMetadata(level: "Debug", file: file, function: function, line: line)
+            SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
+        }
+    }
+    
+    /**
+     Log a collection at *verbose* level. Use this to provide fine grained message about the code path executed by your program.
+     
+     - parameter collection :A `CollectionType` where the generator returns a 2 element tuple of Loggables. For example, a dictionary
+     - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
+     */
+    public class func verbose<Key:Loggable,
+                              Value: Loggable,
+                              T: CollectionType where T.Generator.Element == (Key, Value)>(
+        collection: T,
+        prefix: Loggable = "",
+        file: String = #file,
+        function: String = #function,
+        line: UInt = #line) {
+        if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Verbose.rawValue {
+            let metadata = MessageMetadata(level: "Verbose", file: file, function: function, line: line)
+            SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
+        }
     }
 }
