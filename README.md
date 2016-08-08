@@ -1,11 +1,11 @@
 
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
-[![Pod Version](https://cocoapod-badges.herokuapp.com/v/SwiftLogger/badge.png)](https://cocoapod-badges.herokuapp.com/v/SwiftLogger/badge.png)
+[![Pod Version](https://cocoapod-badges.herokuapp.com/v/SwiftLogger/badge.png)](https://cocoapods.org/pods/SwiftLogger)
 
 #### Build Status
-Develop: [![Build Status](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=develop)](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=develop)
+Develop: [![Build Status](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=develop)](https://travis-ci.org/ayushn21/SwiftLogger)
 
-Master: [![Build Status](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=master)](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=master)
+Master: [![Build Status](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=master)](https://travis-ci.org/ayushn21/SwiftLogger)
 
 
 ## Description
