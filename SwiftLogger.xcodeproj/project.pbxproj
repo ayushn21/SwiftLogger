@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		29ACC06F1D38F2F7008F220C /* MessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ACC06E1D38F2F7008F220C /* MessageTests.swift */; };
 		2A77F25A1D591A0A00A28BC7 /* MockLoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77F2591D591A0A00A28BC7 /* MockLoggingService.swift */; };
+		2A77F25C1D59365500A28BC7 /* ArrayFormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77F25B1D59365500A28BC7 /* ArrayFormattingTests.swift */; };
+		2A77F25E1D59365F00A28BC7 /* SetFormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77F25D1D59365F00A28BC7 /* SetFormattingTests.swift */; };
+		2A77F2601D59366C00A28BC7 /* DictionaryFormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77F25F1D59366C00A28BC7 /* DictionaryFormattingTests.swift */; };
+		2A77F2621D59367600A28BC7 /* StringFormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77F2611D59367600A28BC7 /* StringFormattingTests.swift */; };
+		2A77F2641D59373600A28BC7 /* BaseFormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77F2631D59373600A28BC7 /* BaseFormattingTests.swift */; };
 		2AEA87241C5422E600E5DBB3 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEA87231C5422E600E5DBB3 /* Loggable.swift */; };
 		2AF476931CEFC43A0094B0DF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF476921CEFC43A0094B0DF /* Message.swift */; };
 		2AF92B9C1BAF67CD007B2676 /* SwiftLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AF92B9B1BAF67CD007B2676 /* SwiftLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,6 +37,11 @@
 /* Begin PBXFileReference section */
 		29ACC06E1D38F2F7008F220C /* MessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTests.swift; sourceTree = "<group>"; };
 		2A77F2591D591A0A00A28BC7 /* MockLoggingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLoggingService.swift; sourceTree = "<group>"; };
+		2A77F25B1D59365500A28BC7 /* ArrayFormattingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayFormattingTests.swift; sourceTree = "<group>"; };
+		2A77F25D1D59365F00A28BC7 /* SetFormattingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetFormattingTests.swift; sourceTree = "<group>"; };
+		2A77F25F1D59366C00A28BC7 /* DictionaryFormattingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryFormattingTests.swift; sourceTree = "<group>"; };
+		2A77F2611D59367600A28BC7 /* StringFormattingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFormattingTests.swift; sourceTree = "<group>"; };
+		2A77F2631D59373600A28BC7 /* BaseFormattingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFormattingTests.swift; sourceTree = "<group>"; };
 		2AEA87231C5422E600E5DBB3 /* Loggable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loggable.swift; sourceTree = "<group>"; };
 		2AF476921CEFC43A0094B0DF /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2AF92B981BAF67CD007B2676 /* SwiftLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,11 +85,24 @@
 		2A77F2581D5919F500A28BC7 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				2A77F2651D59373E00A28BC7 /* Formatting Tests */,
 				2AF92BA71BAF67CD007B2676 /* LoggingServiceTests.swift */,
 				2AF92BDF1BBC9A85007B2676 /* SwiftLoggerTests.swift */,
 				29ACC06E1D38F2F7008F220C /* MessageTests.swift */,
 			);
 			name = Tests;
+			sourceTree = "<group>";
+		};
+		2A77F2651D59373E00A28BC7 /* Formatting Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2A77F2631D59373600A28BC7 /* BaseFormattingTests.swift */,
+				2A77F25B1D59365500A28BC7 /* ArrayFormattingTests.swift */,
+				2A77F25D1D59365F00A28BC7 /* SetFormattingTests.swift */,
+				2A77F25F1D59366C00A28BC7 /* DictionaryFormattingTests.swift */,
+				2A77F2611D59367600A28BC7 /* StringFormattingTests.swift */,
+			);
+			name = "Formatting Tests";
 			sourceTree = "<group>";
 		};
 		2AF92B8E1BAF67CD007B2676 = {
@@ -245,7 +268,12 @@
 				2AF92BA81BAF67CD007B2676 /* LoggingServiceTests.swift in Sources */,
 				2A77F25A1D591A0A00A28BC7 /* MockLoggingService.swift in Sources */,
 				29ACC06F1D38F2F7008F220C /* MessageTests.swift in Sources */,
+				2A77F2621D59367600A28BC7 /* StringFormattingTests.swift in Sources */,
+				2A77F25C1D59365500A28BC7 /* ArrayFormattingTests.swift in Sources */,
+				2A77F2641D59373600A28BC7 /* BaseFormattingTests.swift in Sources */,
 				2AF92BE01BBC9A85007B2676 /* SwiftLoggerTests.swift in Sources */,
+				2A77F25E1D59365F00A28BC7 /* SetFormattingTests.swift in Sources */,
+				2A77F2601D59366C00A28BC7 /* DictionaryFormattingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
