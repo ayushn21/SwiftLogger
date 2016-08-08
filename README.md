@@ -115,6 +115,9 @@ it, simply add the following lines to your Podfile:
 
 ## Release Notes
 
+####0.4.1
+Fixing a documentation error
+
 ####0.4.0
 Added `Dictionary` support.
 
