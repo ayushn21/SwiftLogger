@@ -1,4 +1,12 @@
-[![Build Status](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=develop)](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=develop)
+
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+[![Pod Version](https://cocoapod-badges.herokuapp.com/v/SwiftLogger/badge.png)](https://cocoapod-badges.herokuapp.com/v/SwiftLogger/badge.png)
+
+#### Build Status
+Develop: [![Build Status](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=develop)](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=develop)
+
+Master: [![Build Status](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=master)](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=master)
+
 
 ## Description
 
@@ -55,7 +63,7 @@ SwiftLogger has built in functionality to log collections and will not use up re
 
 To log objects in a collection, all the contained objects must conform to the `Loggable` protocol. It only contains one method of the following signature: `func log() -> String`. All `NSObjects` conform to this protocol and return it's `description` property by default. Most swift primitives conform to `Loggable` by default as well!
 
-Unfortunately logging of `Dictionaries` is not yet supported but is on the roadmap.
+Dictionaries can be logged where the Key and Value are both `Loggable`s.
 
 The below code demonstrates how you can log collections to the console:
 	
@@ -63,6 +71,13 @@ The below code demonstrates how you can log collections to the console:
 	        let anArray = ["one","two","three","four"]
         	Log.debug(anArray)
 	    }
+	
+You can optionally specify a prefix while logging a collection like:
+
+		func collectionLoggingTest() {
+        	let anArray = ["one","two","three","four"]
+     	   	Log.debug(anArray, prefix: "anArray")
+    	}
 	
 #### Collection Log Output
 
@@ -74,7 +89,13 @@ Collection log messages look like this:
 		three
 		four
 
-	
+Or with a prefix:
+
+	08-08-2016 23:05:37.420	[Debug]	ViewController.swift:27	collectionLoggingTest(): anArray
+		one
+		two
+		three
+		four	
 
 ## Requirements
 
@@ -94,6 +115,13 @@ it, simply add the following lines to your Podfile:
 
 ## Release Notes
 
+####0.4.0
+Added `Dictionary` support.
+
+Increased unit test coverage.
+
+Added option for prefix on collection logging.
+
 ####0.3.2
 Fixed deprecation warnings in Swift 2.2. Added more unit tests.
 
@@ -111,8 +139,7 @@ Initial Release
 
 ## To-Do
 
-I would like to build a feature to log messages to a file in addition to the console.
-Dictionary support also needs to be added to `CollectionType` logging.
+I am looking to build a feature to log messages to a file in addition to the console.
 
 ## Author
 
