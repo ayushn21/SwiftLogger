@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=develop)](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=develop)
+
 ## Description
 
 SwiftLogger is designed to be a simple, easy to use, no frills logging library. It allows you to log messages at 6 different levels and formats log messages so you know exactly where and when they have been logged from. This library has prioritised ease of use over extensibility.
