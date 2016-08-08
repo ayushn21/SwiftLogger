@@ -85,45 +85,50 @@ class LoggingServiceTests: XCTestCase {
         let stringSet = Set(["one", "two", "three", "four"])
         let output = mockLoggingService.formatCollectionAsString(stringSet)
         
-        let expectedString = "\n\tfour\n\tone\n\tthree\n\ttwo\n"
-        
-        XCTAssert(output == expectedString)
+        XCTAssert(output.containsString("\n\tone"))
+        XCTAssert(output.containsString("\n\ttwo"))
+        XCTAssert(output.containsString("\n\tthree"))
+        XCTAssert(output.containsString("\n\tfour"))
     }
     
     func testFormatIntSet() {
         let intSet = Set([1, 2, 3, 4])
         let output = mockLoggingService.formatCollectionAsString(intSet)
         
-        let expectedString = "\n\t2\n\t3\n\t1\n\t4\n"
-        
-        XCTAssert(output == expectedString)
+        XCTAssert(output.containsString("\n\t1"))
+        XCTAssert(output.containsString("\n\t2"))
+        XCTAssert(output.containsString("\n\t3"))
+        XCTAssert(output.containsString("\n\t4"))
     }
     
     func testFormatUIntSet() {
         let uintSet = Set<UInt>([1, 2, 3, 4])
         let output = mockLoggingService.formatCollectionAsString(uintSet)
         
-        let expectedString = "\n\t2\n\t3\n\t1\n\t4\n"
-        
-        XCTAssert(output == expectedString)
+        XCTAssert(output.containsString("\n\t1"))
+        XCTAssert(output.containsString("\n\t2"))
+        XCTAssert(output.containsString("\n\t3"))
+        XCTAssert(output.containsString("\n\t4"))
     }
     
     func testFormatFloatSet() {
         let floatSet = Set<Float>([1.1, 2.2, 3.3, 4.4])
         let output = mockLoggingService.formatCollectionAsString(floatSet)
         
-        let expectedString = "\n\t1.1\n\t3.3\n\t2.2\n\t4.4\n"
-        
-        XCTAssert(output == expectedString)
+        XCTAssert(output.containsString("\n\t1.1"))
+        XCTAssert(output.containsString("\n\t2.2"))
+        XCTAssert(output.containsString("\n\t3.3"))
+        XCTAssert(output.containsString("\n\t4.4"))
     }
     
     func testFormatDoubleSet() {
         let doubleSet = Set<Double>([1.1, 2.2, 3.3, 4.4])
         let output = mockLoggingService.formatCollectionAsString(doubleSet)
         
-        let expectedString = "\n\t3.3\n\t2.2\n\t1.1\n\t4.4\n"
-        
-        XCTAssert(output == expectedString)
+        XCTAssert(output.containsString("\n\t1.1"))
+        XCTAssert(output.containsString("\n\t2.2"))
+        XCTAssert(output.containsString("\n\t3.3"))
+        XCTAssert(output.containsString("\n\t4.4"))
     }
     
     // MARK: Testing Strings
@@ -134,7 +139,7 @@ class LoggingServiceTests: XCTestCase {
         
         let output = mockLoggingService.formatMessage(message)
         
-        let expectedString = "\t[Debug]\tLoggingServiceTests.swift:133\ttestFormatStringMessage(): some log message"
+        let expectedString = "\t[Debug]\tLoggingServiceTests.swift:138\ttestFormatStringMessage(): some log message"
         
         XCTAssert(output.containsString(expectedString))
     }
