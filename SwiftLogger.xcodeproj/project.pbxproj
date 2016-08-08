@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		29ACC06F1D38F2F7008F220C /* MessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ACC06E1D38F2F7008F220C /* MessageTests.swift */; };
+		2A77F25A1D591A0A00A28BC7 /* MockLoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77F2591D591A0A00A28BC7 /* MockLoggingService.swift */; };
 		2AEA87241C5422E600E5DBB3 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEA87231C5422E600E5DBB3 /* Loggable.swift */; };
 		2AF476931CEFC43A0094B0DF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF476921CEFC43A0094B0DF /* Message.swift */; };
 		2AF92B9C1BAF67CD007B2676 /* SwiftLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AF92B9B1BAF67CD007B2676 /* SwiftLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		29ACC06E1D38F2F7008F220C /* MessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTests.swift; sourceTree = "<group>"; };
+		2A77F2591D591A0A00A28BC7 /* MockLoggingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLoggingService.swift; sourceTree = "<group>"; };
 		2AEA87231C5422E600E5DBB3 /* Loggable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loggable.swift; sourceTree = "<group>"; };
 		2AF476921CEFC43A0094B0DF /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2AF92B981BAF67CD007B2676 /* SwiftLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +64,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A77F2571D5919EE00A28BC7 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				2A77F2591D591A0A00A28BC7 /* MockLoggingService.swift */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
+		2A77F2581D5919F500A28BC7 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2AF92BA71BAF67CD007B2676 /* LoggingServiceTests.swift */,
+				2AF92BDF1BBC9A85007B2676 /* SwiftLoggerTests.swift */,
+				29ACC06E1D38F2F7008F220C /* MessageTests.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 		2AF92B8E1BAF67CD007B2676 = {
 			isa = PBXGroup;
 			children = (
@@ -96,9 +116,8 @@
 		2AF92BA61BAF67CD007B2676 /* SwiftLoggerTests */ = {
 			isa = PBXGroup;
 			children = (
-				2AF92BA71BAF67CD007B2676 /* LoggingServiceTests.swift */,
-				2AF92BDF1BBC9A85007B2676 /* SwiftLoggerTests.swift */,
-				29ACC06E1D38F2F7008F220C /* MessageTests.swift */,
+				2A77F2581D5919F500A28BC7 /* Tests */,
+				2A77F2571D5919EE00A28BC7 /* Mocks */,
 				2AF92BA91BAF67CD007B2676 /* Info.plist */,
 			);
 			path = SwiftLoggerTests;
@@ -224,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AF92BA81BAF67CD007B2676 /* LoggingServiceTests.swift in Sources */,
+				2A77F25A1D591A0A00A28BC7 /* MockLoggingService.swift in Sources */,
 				29ACC06F1D38F2F7008F220C /* MessageTests.swift in Sources */,
 				2AF92BE01BBC9A85007B2676 /* SwiftLoggerTests.swift in Sources */,
 			);
