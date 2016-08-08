@@ -12,7 +12,7 @@ import XCTest
 class SetFormattingTests: BaseFormattingTests {
     
     func testFormatStringSet() {
-        let stringSet = Set(["one", "two", "three", "four"])
+        let stringSet: Set<String> = ["one", "two", "three", "four"]
         let output = mockLoggingService.formatCollectionAsString(stringSet)
         
         XCTAssert(output.containsString("\n\tone"))
@@ -22,7 +22,7 @@ class SetFormattingTests: BaseFormattingTests {
     }
     
     func testFormatIntSet() {
-        let intSet = Set([1, 2, 3, 4])
+        let intSet: Set<Int> = [1, 2, 3, 4]
         let output = mockLoggingService.formatCollectionAsString(intSet)
         
         XCTAssert(output.containsString("\n\t1"))
@@ -32,7 +32,7 @@ class SetFormattingTests: BaseFormattingTests {
     }
     
     func testFormatUIntSet() {
-        let uintSet = Set<UInt>([1, 2, 3, 4])
+        let uintSet: Set<UInt> = [1, 2, 3, 4]
         let output = mockLoggingService.formatCollectionAsString(uintSet)
         
         XCTAssert(output.containsString("\n\t1"))
@@ -42,7 +42,7 @@ class SetFormattingTests: BaseFormattingTests {
     }
     
     func testFormatFloatSet() {
-        let floatSet = Set<Float>([1.1, 2.2, 3.3, 4.4])
+        let floatSet: Set<Float> = [1.1, 2.2, 3.3, 4.4]
         let output = mockLoggingService.formatCollectionAsString(floatSet)
         
         XCTAssert(output.containsString("\n\t1.1"))
@@ -52,7 +52,7 @@ class SetFormattingTests: BaseFormattingTests {
     }
     
     func testFormatDoubleSet() {
-        let doubleSet = Set<Double>([1.1, 2.2, 3.3, 4.4])
+        let doubleSet: Set<Double> = [1.1, 2.2, 3.3, 4.4]
         let output = mockLoggingService.formatCollectionAsString(doubleSet)
         
         XCTAssert(output.containsString("\n\t1.1"))
