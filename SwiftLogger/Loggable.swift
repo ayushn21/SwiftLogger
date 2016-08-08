@@ -6,7 +6,7 @@
 //  Copyright © 2016 Spectrum. All rights reserved.
 //
 
-/// Protocol to log objects contained in CollectionTypes except for Dictionaries
+/// Protocol to log objects using SwiftLogger. Most common Swift types conform to this protocol automatically.
 public protocol Loggable {
     /**
      - Returns: A string representation of the object, used for logging purposes
