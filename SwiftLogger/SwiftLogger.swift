@@ -156,14 +156,14 @@ public class Log {
         - parameter collection :A `CollectionType` of `Loggable` objects
     */
     public class func error<T: CollectionType where T.Generator.Element: Loggable>(
-        prefix: String = "",
         collection: T,
+        prefix: Loggable = "",
         file: String = #file,
         function: String = #function,
         line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Error.rawValue {
                 let metadata = MessageMetadata(level: "Error", file: file, function: function, line: line)
-                SwiftLogger.service.logCollection(collection, prefix: prefix, withMetadata: metadata)
+                SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
             }
     }
     
@@ -173,14 +173,14 @@ public class Log {
         - parameter collection :A `CollectionType` of `Loggable` objects
      */
     public class func warning<T: CollectionType where T.Generator.Element: Loggable>(
-        prefix: String = "",
         collection: T,
+        prefix: Loggable = "",
         file: String = #file,
         function: String = #function,
         line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Warning.rawValue {
                 let metadata = MessageMetadata(level: "Warning", file: file, function: function, line: line)
-                SwiftLogger.service.logCollection(collection, prefix: prefix, withMetadata: metadata)
+                SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
             }
     }
     
@@ -190,14 +190,14 @@ public class Log {
         - parameter collection :A `CollectionType` of `Loggable` objects
     */
     public class func info<T: CollectionType where T.Generator.Element: Loggable>(
-        prefix: String = "",
         collection: T,
+        prefix: Loggable = "",
         file: String = #file,
         function: String = #function,
         line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Info.rawValue {
                 let metadata = MessageMetadata(level: "Info", file: file, function: function, line: line)
-                SwiftLogger.service.logCollection(collection, prefix: prefix, withMetadata: metadata)
+                SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
             }
     }
     
@@ -207,14 +207,14 @@ public class Log {
         - parameter collection :A `CollectionType` of `Loggable` objects
      */
     public class func debug<T: CollectionType where T.Generator.Element: Loggable>(
-        prefix: String = "",
         collection: T,
+        prefix: Loggable = "",
         file: String = #file,
         function: String = #function,
         line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Debug.rawValue {
                 let metadata = MessageMetadata(level: "Debug", file: file, function: function, line: line)
-                SwiftLogger.service.logCollection(collection, prefix: prefix, withMetadata: metadata)
+                SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
             }
     }
 
@@ -224,14 +224,14 @@ public class Log {
         - parameter collection :A `CollectionType` of `Loggable` objects
      */
     public class func verbose<T: CollectionType where T.Generator.Element: Loggable>(
-        prefix: String = "",
         collection: T,
+        prefix: Loggable = "",
         file: String = #file,
         function: String = #function,
         line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.Verbose.rawValue {
                 let metadata = MessageMetadata(level: "Verbose", file: file, function: function, line: line)
-                SwiftLogger.service.logCollection(collection, prefix: prefix, withMetadata: metadata)
+                SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
             }
     }
 }
