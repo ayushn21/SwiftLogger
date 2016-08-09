@@ -32,7 +32,7 @@ struct MessageMetadata {
     let file: String
     let function: String
     let line: UInt
-    let timestamp: NSDate
+    let timestamp: Date
     
     init(level: String,
          file: String,
@@ -42,6 +42,6 @@ struct MessageMetadata {
         self.file = (file as NSString).lastPathComponent
         self.function = function
         self.line = line
-        self.timestamp = NSDate()
+        self.timestamp = Date()
     }
 }

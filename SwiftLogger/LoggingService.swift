@@ -9,20 +9,20 @@
 
 protocol Logger {
     var logLevel: SwiftLogger.LogLevel { get set }
-    var dateFormatter: NSDateFormatter { get }
+    var dateFormatter: DateFormatter { get }
     
-    func logMessage(message: Message)
-    func logCollection<T: CollectionType where T.Generator.Element: Loggable>
-        (collection: T, prefix: String, withMetadata metadata: MessageMetadata)
+    func logMessage(_ message: Message)
+    func logCollection<T: Collection where T.Iterator.Element: Loggable>
+        (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata)
     func logCollection<Key:Loggable,
                        Value: Loggable,
-                       T: CollectionType where T.Generator.Element == (Key, Value)>
-        (collection: T, prefix: String, withMetadata metadata: MessageMetadata)
+                       T: Collection where T.Iterator.Element == (Key, Value)>
+        (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata)
 }
 
 extension Logger {
-    func formatCollectionAsString<T: CollectionType where T.Generator.Element: Loggable>
-        (collection: T) -> String {
+    func formatCollectionAsString<T: Collection where T.Iterator.Element: Loggable>
+        (_ collection: T) -> String {
             var messageString = "\n"
             for element in collection {
                 messageString = "\(messageString)\t\(element.log())\n"
@@ -32,8 +32,8 @@ extension Logger {
     
     func formatCollectionAsString<Key:Loggable,
                                   Value: Loggable,
-                                  T: CollectionType where T.Generator.Element == (Key, Value)>
-        (collection: T) -> String {
+                                  T: Collection where T.Iterator.Element == (Key, Value)>
+        (_ collection: T) -> String {
         var messageString = "\n"
         
         for element in collection {
@@ -42,36 +42,36 @@ extension Logger {
         return messageString
     }
     
-    func formatMessage(message: Message) -> String {
-        let dateString = self.dateFormatter.stringFromDate(message.metadata.timestamp)
+    func formatMessage(_ message: Message) -> String {
+        let dateString = self.dateFormatter.string(from: message.metadata.timestamp as Date)
         return "\(dateString)\t[\(message.metadata.level)]\t\(message.metadata.file):\(message.metadata.line)\t\(message.metadata.function): \(message.body)"
     }
 }
 
 final class LoggingService: Logger {
 
-    let dateFormatter = NSDateFormatter()
-    var logLevel = SwiftLogger.LogLevel.Debug
+    let dateFormatter = DateFormatter()
+    var logLevel = SwiftLogger.LogLevel.debug
     
-    private let consoleQueue = NSOperationQueue()
+    private let consoleQueue = OperationQueue()
     
     init() {
         consoleQueue.maxConcurrentOperationCount = 1;
-        consoleQueue.qualityOfService = NSQualityOfService.Default
-        dateFormatter.locale = NSLocale.currentLocale()
+        consoleQueue.qualityOfService = QualityOfService.default
+        dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss.SSS"
     }
     
-    func logMessage(message: Message) {
-        consoleQueue.addOperationWithBlock { [unowned self] () -> Void in
+    func logMessage(_ message: Message) {
+        consoleQueue.addOperation { [unowned self] () -> Void in
             print(self.formatMessage(message))
         }
     }
     
-    func logCollection<T: CollectionType where T.Generator.Element: Loggable>
-        (collection: T, prefix: String, withMetadata metadata: MessageMetadata) {
+    func logCollection<T: Collection where T.Iterator.Element: Loggable>
+        (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata) {
                 
-        consoleQueue.addOperationWithBlock { [unowned self] () -> Void in
+        consoleQueue.addOperation { [unowned self] () -> Void in
             let messageString = self.formatCollectionAsString(collection)
             let message = Message(prefix + messageString, metadata: metadata)
             print(self.formatMessage(message))
@@ -80,9 +80,9 @@ final class LoggingService: Logger {
     
     func logCollection<Key:Loggable,
                        Value: Loggable,
-                       T: CollectionType where T.Generator.Element == (Key, Value)>
-        (collection: T, prefix: String, withMetadata metadata: MessageMetadata) {
-        consoleQueue.addOperationWithBlock { [unowned self] () -> Void in
+                       T: Collection where T.Iterator.Element == (Key, Value)>
+        (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata) {
+        consoleQueue.addOperation { [unowned self] () -> Void in
             let messageString = self.formatCollectionAsString(collection)
             let message = Message(prefix + messageString, metadata: metadata)
             print(self.formatMessage(message))

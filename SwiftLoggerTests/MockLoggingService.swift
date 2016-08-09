@@ -11,20 +11,20 @@ import Foundation
 
 final class MockLoggingService: Logger {
     
-    let dateFormatter = NSDateFormatter()
-    var logLevel = SwiftLogger.LogLevel.Debug
+    let dateFormatter = DateFormatter()
+    var logLevel = SwiftLogger.LogLevel.debug
     
     init() {
-        dateFormatter.locale = NSLocale.currentLocale()
+        dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss.SSS"
     }
     
-    func logMessage(message: Message) {}
+    func logMessage(_ message: Message) {}
     
-    func logCollection<T: CollectionType where T.Generator.Element: Loggable>
-        (collection: T, prefix: String, withMetadata metadata: MessageMetadata) {}
+    func logCollection<T: Collection where T.Iterator.Element: Loggable>
+        (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata) {}
     func logCollection<Key:Loggable,
                        Value: Loggable,
-                       T: CollectionType where T.Generator.Element == (Key, Value)>
-        (collection: T, prefix: String, withMetadata metadata: MessageMetadata) {}
+                       T: Collection where T.Iterator.Element == (Key, Value)>
+        (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata) {}
 }

@@ -19,6 +19,6 @@ class StringFormattingTests: BaseFormattingTests {
         
         let expectedString = "\t[Debug]\tStringFormattingTests.swift:16\ttestFormatStringMessage(): some log message"
         
-        XCTAssert(output.containsString(expectedString))
+        XCTAssert(output.contains(expectedString))
     }
 }
