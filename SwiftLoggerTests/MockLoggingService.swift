@@ -21,10 +21,10 @@ final class MockLoggingService: Logger {
     
     func logMessage(_ message: Message) {}
     
-    func logCollection<T: Collection where T.Iterator.Element: Loggable>
-        (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata) {}
-    func logCollection<Key:Loggable,
-                       Value: Loggable,
-                       T: Collection where T.Iterator.Element == (Key, Value)>
-        (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata) {}
+    func logCollection<T: Collection>
+        (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata)
+        where T.Iterator.Element: Loggable {}
+    
+    func logDictionary<Key: Loggable, Value:Loggable>
+        (_ collection: Dictionary<Key, Value>, prefix: String, withMetadata metadata: MessageMetadata) {}
 }

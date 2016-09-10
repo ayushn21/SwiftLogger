@@ -258,107 +258,92 @@ final public class Log {
     // MARK: Dictionary Logging
     
     /**
-     Log a collection at *error* level. Use this to log information about something that has gone wrong.
+     Log a dictionary at *warning* level. Use this to provide fine grained message about the code path executed by your program.
      
-     - parameter collection :A `CollectionType` where the generator returns a 2 element tuple of Loggables. For example, a dictionary
+     - parameter dictionary :A `Dictionary` where the key and value conform to `Loggable`
      - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
      */
-    public class func error<Key:Loggable, Value: Loggable, T: Collection>
-        (_ collection: T,
+    public class func error<Key: Loggable, Value: Loggable>
+        (_ collection: Dictionary<Key, Value>,
          prefix: Loggable = "",
          file: String = #file,
          function: String = #function,
-         line: UInt = #line)
-        
-        where T.Iterator.Element == (Key, Value) {
-            
+         line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.error.rawValue {
                 let metadata = MessageMetadata(level: "Error", file: file, function: function, line: line)
-                SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
+                SwiftLogger.service.logDictionary(collection, prefix: prefix.log(), withMetadata: metadata)
             }
     }
     
     /**
-     Log a collection at *warning* level. Use this to log a collection if something might go wrong in your program's execution
+     Log a dictionary at *warning* level. Use this to provide fine grained message about the code path executed by your program.
      
-     - parameter collection :A `CollectionType` where the generator returns a 2 element tuple of Loggables. For example, a dictionary
+     - parameter dictionary :A `Dictionary` where the key and value conform to `Loggable`
      - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
      */
-    public class func warning<Key:Loggable, Value: Loggable, T: Collection>
-        (_ collection: T,
+    public class func warning<Key: Loggable, Value: Loggable>
+        (_ dictionary: Dictionary<Key, Value>,
          prefix: Loggable = "",
          file: String = #file,
          function: String = #function,
-         line: UInt = #line)
-        
-        where T.Iterator.Element == (Key, Value) {
-            
+         line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.warning.rawValue {
                 let metadata = MessageMetadata(level: "Warning", file: file, function: function, line: line)
-                SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
+                SwiftLogger.service.logDictionary(dictionary, prefix: prefix.log(), withMetadata: metadata)
             }
     }
     
     /**
-     Log a collection at *info* level. Use this sparingly for general information to avoid clogging up your logs.
+     Log a dictionary at *info* level. Use this to provide fine grained message about the code path executed by your program.
      
-     - parameter collection :A `CollectionType` where the generator returns a 2 element tuple of Loggables. For example, a dictionary
+     - parameter dictionary :A `Dictionary` where the key and value conform to `Loggable`
      - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
      */
-    public class func info<Key:Loggable, Value: Loggable, T: Collection>
-        (_ collection: T,
+    public class func info<Key: Loggable, Value: Loggable>
+        (_ dictionary: Dictionary<Key, Value>,
          prefix: Loggable = "",
          file: String = #file,
          function: String = #function,
-         line: UInt = #line)
-        
-        where T.Iterator.Element == (Key, Value) {
-            
+         line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.info.rawValue {
                 let metadata = MessageMetadata(level: "Info", file: file, function: function, line: line)
-                SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
+                SwiftLogger.service.logDictionary(dictionary, prefix: prefix.log(), withMetadata: metadata)
             }
     }
     
     /**
-     Log a collection at *debug* level. Use this to log anything that might be useful for debugging.
+     Log a dictionary at *debug* level. Use this to provide fine grained message about the code path executed by your program.
      
-     - parameter collection :A `CollectionType` where the generator returns a 2 element tuple of Loggables. For example, a dictionary
+     - parameter dictionary :A `Dictionary` where the key and value conform to `Loggable`
      - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
      */
-    public class func debug<Key:Loggable, Value: Loggable, T: Collection>
-        (_ collection: T,
+    public class func debug<Key: Loggable, Value: Loggable>
+        (_ dictionary: Dictionary<Key, Value>,
          prefix: Loggable = "",
          file: String = #file,
          function: String = #function,
-         line: UInt = #line)
-        
-        where T.Iterator.Element == (Key, Value) {
-            
+         line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.debug.rawValue {
                 let metadata = MessageMetadata(level: "Debug", file: file, function: function, line: line)
-                SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
+                SwiftLogger.service.logDictionary(dictionary, prefix: prefix.log(), withMetadata: metadata)
             }
     }
     
     /**
-     Log a collection at *verbose* level. Use this to provide fine grained message about the code path executed by your program.
+     Log a dictionary at *verbose* level. Use this to provide fine grained message about the code path executed by your program.
      
-     - parameter collection :A `CollectionType` where the generator returns a 2 element tuple of Loggables. For example, a dictionary
+     - parameter dictionary :A `Dictionary` where the key and value conform to `Loggable`
      - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
      */
-    public class func verbose<Key:Loggable, Value: Loggable, T: Collection>
-        (_ collection: T,
+    public class func verbose<Key: Loggable, Value: Loggable>
+        (_ dictionary: Dictionary<Key, Value>,
          prefix: Loggable = "",
          file: String = #file,
          function: String = #function,
-         line: UInt = #line)
-        
-        where T.Iterator.Element == (Key, Value) {
-            
+         line: UInt = #line) {
             if SwiftLogger.service.logLevel.rawValue >= SwiftLogger.LogLevel.verbose.rawValue {
                 let metadata = MessageMetadata(level: "Verbose", file: file, function: function, line: line)
-                SwiftLogger.service.logCollection(collection, prefix: prefix.log(), withMetadata: metadata)
+                SwiftLogger.service.logDictionary(dictionary, prefix: prefix.log(), withMetadata: metadata)
             }
     }
 }

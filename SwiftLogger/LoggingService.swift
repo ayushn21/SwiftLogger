@@ -17,33 +17,11 @@ protocol Logger {
         (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata)
     where T.Iterator.Element: Loggable
     
-    func logCollection<Key:Loggable, Value: Loggable, T: Collection>
-        (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata)
-    where T.Iterator.Element == (Key, Value)
+    func logDictionary<Key: Loggable, Value:Loggable>
+        (_ collection: Dictionary<Key, Value>, prefix: String, withMetadata metadata: MessageMetadata)
 }
 
 extension Logger {
-    func formatCollectionAsString<T: Collection> (_ collection: T) -> String
-        where T.Iterator.Element: Loggable {
-            var messageString = "\n"
-            for element in collection {
-                messageString = "\(messageString)\t\(element.log())\n"
-            }
-            return messageString
-    }
-    
-    func formatCollectionAsString<Key:Loggable, Value: Loggable, T: Collection>
-        (_ collection: T) -> String
-        where T.Iterator.Element == (Key, Value) {
-            
-            var messageString = "\n"
-            
-            for element in collection {
-                messageString = "\(messageString)\t\(element.0.log()) : \(element.1.log())\n"
-            }
-            return messageString
-    }
-    
     func formatMessage(_ message: Message) -> String {
         let dateString = self.dateFormatter.string(from: message.metadata.timestamp as Date)
         return "\(dateString)\t[\(message.metadata.level)]\t\(message.metadata.file):\(message.metadata.line)\t\(message.metadata.function): \(message.body)"
@@ -75,19 +53,41 @@ final class LoggingService: Logger {
         where T.Iterator.Element: Loggable {
             
             consoleQueue.addOperation { [unowned self] () -> Void in
-                let messageString = self.formatCollectionAsString(collection)
+                let messageString = collection.asString()
                 let message = Message(prefix + messageString, metadata: metadata)
                 print(self.formatMessage(message))
             }
     }
     
-    func logCollection<Key:Loggable, Value: Loggable, T: Collection>
-        (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata)
-        where T.Iterator.Element == (Key, Value) {
+    func logDictionary<Key: Loggable, Value:Loggable>
+        (_ dictionary: Dictionary<Key, Value>, prefix: String, withMetadata metadata: MessageMetadata) {
             consoleQueue.addOperation { [unowned self] () -> Void in
-                let messageString = self.formatCollectionAsString(collection)
+                let messageString = dictionary.asString()
                 let message = Message(prefix + messageString, metadata: metadata)
                 print(self.formatMessage(message))
             }
+    }
+}
+
+// MARK: Utilities
+
+extension Collection where Iterator.Element: Loggable {
+    func asString() -> String {
+        var messageString = "\n"
+        for element in self {
+            messageString = "\(messageString)\t\(element.log())\n"
+        }
+        return messageString
+    }
+}
+
+extension Dictionary where Key: Loggable, Value: Loggable {
+    func asString() -> String {
+        var messageString = "\n"
+        
+        for (key, value) in self {
+            messageString = "\(messageString)\t\(key.log()) : \(value.log())\n"
+        }
+        return messageString
     }
 }
