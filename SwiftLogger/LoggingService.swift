@@ -12,17 +12,19 @@ protocol Logger {
     var dateFormatter: DateFormatter { get }
     
     func logMessage(_ message: Message)
-    func logCollection<T: Collection where T.Iterator.Element: Loggable>
+    
+    func logCollection<T: Collection>
         (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata)
-    func logCollection<Key:Loggable,
-                       Value: Loggable,
-                       T: Collection where T.Iterator.Element == (Key, Value)>
+    where T.Iterator.Element: Loggable
+    
+    func logCollection<Key:Loggable, Value: Loggable, T: Collection>
         (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata)
+    where T.Iterator.Element == (Key, Value)
 }
 
 extension Logger {
-    func formatCollectionAsString<T: Collection where T.Iterator.Element: Loggable>
-        (_ collection: T) -> String {
+    func formatCollectionAsString<T: Collection> (_ collection: T) -> String
+        where T.Iterator.Element: Loggable {
             var messageString = "\n"
             for element in collection {
                 messageString = "\(messageString)\t\(element.log())\n"
@@ -30,16 +32,16 @@ extension Logger {
             return messageString
     }
     
-    func formatCollectionAsString<Key:Loggable,
-                                  Value: Loggable,
-                                  T: Collection where T.Iterator.Element == (Key, Value)>
-        (_ collection: T) -> String {
-        var messageString = "\n"
-        
-        for element in collection {
-            messageString = "\(messageString)\t\(element.0.log()) : \(element.1.log())\n"
-        }
-        return messageString
+    func formatCollectionAsString<Key:Loggable, Value: Loggable, T: Collection>
+        (_ collection: T) -> String
+        where T.Iterator.Element == (Key, Value) {
+            
+            var messageString = "\n"
+            
+            for element in collection {
+                messageString = "\(messageString)\t\(element.0.log()) : \(element.1.log())\n"
+            }
+            return messageString
     }
     
     func formatMessage(_ message: Message) -> String {
@@ -49,7 +51,7 @@ extension Logger {
 }
 
 final class LoggingService: Logger {
-
+    
     let dateFormatter = DateFormatter()
     var logLevel = SwiftLogger.LogLevel.debug
     
@@ -68,24 +70,24 @@ final class LoggingService: Logger {
         }
     }
     
-    func logCollection<T: Collection where T.Iterator.Element: Loggable>
-        (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata) {
-                
-        consoleQueue.addOperation { [unowned self] () -> Void in
-            let messageString = self.formatCollectionAsString(collection)
-            let message = Message(prefix + messageString, metadata: metadata)
-            print(self.formatMessage(message))
-        }
+    func logCollection<T: Collection>
+        (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata)
+        where T.Iterator.Element: Loggable {
+            
+            consoleQueue.addOperation { [unowned self] () -> Void in
+                let messageString = self.formatCollectionAsString(collection)
+                let message = Message(prefix + messageString, metadata: metadata)
+                print(self.formatMessage(message))
+            }
     }
     
-    func logCollection<Key:Loggable,
-                       Value: Loggable,
-                       T: Collection where T.Iterator.Element == (Key, Value)>
-        (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata) {
-        consoleQueue.addOperation { [unowned self] () -> Void in
-            let messageString = self.formatCollectionAsString(collection)
-            let message = Message(prefix + messageString, metadata: metadata)
-            print(self.formatMessage(message))
-        }
+    func logCollection<Key:Loggable, Value: Loggable, T: Collection>
+        (_ collection: T, prefix: String, withMetadata metadata: MessageMetadata)
+        where T.Iterator.Element == (Key, Value) {
+            consoleQueue.addOperation { [unowned self] () -> Void in
+                let messageString = self.formatCollectionAsString(collection)
+                let message = Message(prefix + messageString, metadata: metadata)
+                print(self.formatMessage(message))
+            }
     }
 }
