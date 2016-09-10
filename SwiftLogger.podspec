@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name              = "SwiftLogger"
-  s.version           = "0.4.1"
+  s.version           = "0.5.0"
   s.summary           = "SwiftLogger is a lightweight, no frills, logging library written in Swift"
   s.author            = { "Ayush Newatia" => "ayush.newatia@icloud.com" }
   s.platform          = :ios, '8.0'
