@@ -153,7 +153,7 @@ final public class Log {
     /**
      Log a collection at *error* level. Use this to log information about something that has gone wrong.
      
-     - parameter collection :A `CollectionType` of `Loggable` objects
+     - parameter collection :A `Collection` of `Loggable` objects
      - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
      */
     public class func error<T: Collection>
@@ -174,7 +174,7 @@ final public class Log {
     /**
      Log a collection at *warning* level. Use this to log a collection if something might go wrong in your program's execution
      
-     - parameter collection :A `CollectionType` of `Loggable` objects
+     - parameter collection :A `Collection` of `Loggable` objects
      - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
      */
     public class func warning<T: Collection>
@@ -195,7 +195,7 @@ final public class Log {
     /**
      Log a collection at *info* level. Use this sparingly for general information to avoid clogging up your logs.
      
-     - parameter collection :A `CollectionType` of `Loggable` objects
+     - parameter collection :A `Collection` of `Loggable` objects
      - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
      */
     public class func info<T: Collection>
@@ -216,7 +216,7 @@ final public class Log {
     /**
      Log a collection at *debug* level. Use this to log anything that might be useful for debugging.
      
-     - parameter collection :A `CollectionType` of `Loggable` objects
+     - parameter collection :A `Collection` of `Loggable` objects
      - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
      */
     public class func debug<T: Collection>
@@ -237,7 +237,7 @@ final public class Log {
     /**
      Log a collection at *verbose* level. Use this to provide fine grained message about the code path executed by your program.
      
-     - parameter collection :A `CollectionType` of `Loggable` objects
+     - parameter collection :A `Collection` of `Loggable` objects
      - parameter prefix :A `Loggable` which will be printed just before the collection (Optional)
      */
     public class func verbose<T: Collection>
