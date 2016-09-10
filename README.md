@@ -1,13 +1,16 @@
 <p align = "center">
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 [![Pod Version](https://cocoapod-badges.herokuapp.com/v/SwiftLogger/badge.png)](https://cocoapods.org/pods/SwiftLogger)
-[![Swift Version](https://img.shields.io/badge/Language-Swift%202.2-orange.svg)](https://developer.apple.com/swift)
+[![Swift Version](https://img.shields.io/badge/Language-Swift%202.2, 2.3-orange.svg)](https://developer.apple.com/swift)
+[![Twitter](https://img.shields.io/badge/Twitter-@AyushN21-blue.svg)](https://twitter.com/ayushn21)
 <p>
 
 #### Build Status
-Develop: [![Build Status](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=develop)](https://travis-ci.org/ayushn21/SwiftLogger)
 
-Master: [![Build Status](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=master)](https://travis-ci.org/ayushn21/SwiftLogger)
+| Branch  | Build Status |
+| ------------- | ------------- |
+| Develop  | [![Build Status](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=develop)](https://travis-ci.org/ayushn21/SwiftLogger)|
+| Master  | [![Build Status](https://travis-ci.org/ayushn21/SwiftLogger.svg?branch=master)](https://travis-ci.org/ayushn21/SwiftLogger)|
 
 ## Description
 
@@ -108,13 +111,21 @@ SwiftLogger is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following lines to your Podfile:
 
     use_frameworks!
-    pod "SwiftLogger"
+    
+    # Swift 2.2
+    pod "SwiftLogger", '0.4.1'
+    
+    # Swift 2.3
+    pod "SwiftLogger", '0.5.0'
 
 ## Documentation
 
 [Docs are available on CocoaDocs](http://cocoadocs.org/docsets/SwiftLogger/)
 
 ## Release Notes
+
+####0.5.0
+Migrated code to Swift 2.3. There will be no more features of patches on Swift 2.3 after this release.
 
 ####0.4.1
 Fixing a documentation error
