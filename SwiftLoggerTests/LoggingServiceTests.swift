@@ -13,7 +13,7 @@ class LoggingServiceTests: XCTestCase {
     
     func testInitialiser() {
         let loggingService = LoggingService()
-        XCTAssertTrue(loggingService.logLevel == .Debug,
+        XCTAssertTrue(loggingService.logLevel == .debug,
             "The default log level should be Debug")
         
         XCTAssertTrue(loggingService.dateFormatter.dateFormat == "dd-MM-yyyy HH:mm:ss.SSS",

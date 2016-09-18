@@ -1,7 +1,7 @@
 <p align = "center">
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 [![Pod Version](https://cocoapod-badges.herokuapp.com/v/SwiftLogger/badge.png)](https://cocoapods.org/pods/SwiftLogger)
-[![Swift Version](https://img.shields.io/badge/Language-Swift%202.2, 2.3-orange.svg)](https://developer.apple.com/swift)
+[![Swift Version](https://img.shields.io/badge/Language-Swift%202.2, 2.3 & 3.0-orange.svg)](https://developer.apple.com/swift)
 [![Twitter](https://img.shields.io/badge/Twitter-@AyushN21-blue.svg)](https://twitter.com/ayushn21)
 <p>
 
@@ -117,12 +117,18 @@ it, simply add the following lines to your Podfile:
     
     # Swift 2.3
     pod "SwiftLogger", '0.5.0'
+    
+    # Swift 3.0
+    pod "SwiftLogger", '~> 1.0.0'
 
 ## Documentation
 
 [Docs are available on CocoaDocs](http://cocoadocs.org/docsets/SwiftLogger/)
 
 ## Release Notes
+
+####1.0.0
+Migrated code to Swift 3.0.
 
 ####0.5.0
 Migrated code to Swift 2.3. There will be no more features of patches on Swift 2.3 after this release.

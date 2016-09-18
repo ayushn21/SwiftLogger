@@ -13,51 +13,51 @@ class DictionaryFormattingTests: BaseFormattingTests {
     
     func testFormatStringDict() {
         let stringDict = ["one" : "1", "two" : "2", "three" : "3", "four" : "4"]
-        let output = mockLoggingService.formatCollectionAsString(stringDict)
+        let output = stringDict.asString()
         
-        XCTAssert(output.containsString("\n\tone : 1"))
-        XCTAssert(output.containsString("\n\ttwo : 2"))
-        XCTAssert(output.containsString("\n\tthree : 3"))
-        XCTAssert(output.containsString("\n\tfour : 4"))
+        XCTAssert(output.contains("\n\tone : 1"))
+        XCTAssert(output.contains("\n\ttwo : 2"))
+        XCTAssert(output.contains("\n\tthree : 3"))
+        XCTAssert(output.contains("\n\tfour : 4"))
     }
     
     func testFormatIntDict() {
         let intDict = ["one" : 1, "two" : 2, "three" : 3, "four" : 4]
-        let output = mockLoggingService.formatCollectionAsString(intDict)
+        let output = intDict.asString()
         
-        XCTAssert(output.containsString("\n\tone : 1"))
-        XCTAssert(output.containsString("\n\ttwo : 2"))
-        XCTAssert(output.containsString("\n\tthree : 3"))
-        XCTAssert(output.containsString("\n\tfour : 4"))
+        XCTAssert(output.contains("\n\tone : 1"))
+        XCTAssert(output.contains("\n\ttwo : 2"))
+        XCTAssert(output.contains("\n\tthree : 3"))
+        XCTAssert(output.contains("\n\tfour : 4"))
     }
     
     func testFormatUIntDict() {
         let uintDict: Dictionary<String, UInt> = ["one" : 1, "two" : 2, "three" : 3, "four" : 4]
-        let output = mockLoggingService.formatCollectionAsString(uintDict)
+        let output = uintDict.asString()
         
-        XCTAssert(output.containsString("\n\tone : 1"))
-        XCTAssert(output.containsString("\n\ttwo : 2"))
-        XCTAssert(output.containsString("\n\tthree : 3"))
-        XCTAssert(output.containsString("\n\tfour : 4"))
+        XCTAssert(output.contains("\n\tone : 1"))
+        XCTAssert(output.contains("\n\ttwo : 2"))
+        XCTAssert(output.contains("\n\tthree : 3"))
+        XCTAssert(output.contains("\n\tfour : 4"))
     }
     
     func testFormatFloatDict() {
         let floatDict: Dictionary<String, Float> = ["one" : 1.1, "two" : 2.2, "three" : 3.3, "four" : 4.4]
-        let output = mockLoggingService.formatCollectionAsString(floatDict)
+        let output = floatDict.asString()
         
-        XCTAssert(output.containsString("\n\tone : 1.1"))
-        XCTAssert(output.containsString("\n\ttwo : 2.2"))
-        XCTAssert(output.containsString("\n\tthree : 3.3"))
-        XCTAssert(output.containsString("\n\tfour : 4.4"))
+        XCTAssert(output.contains("\n\tone : 1.1"))
+        XCTAssert(output.contains("\n\ttwo : 2.2"))
+        XCTAssert(output.contains("\n\tthree : 3.3"))
+        XCTAssert(output.contains("\n\tfour : 4.4"))
     }
     
     func testFormatDoubleDict() {
         let doubleDict: Dictionary<String, Double> = ["one" : 1.1, "two" : 2.2, "three" : 3.3, "four" : 4.4]
-        let output = mockLoggingService.formatCollectionAsString(doubleDict)
+        let output = doubleDict.asString()
         
-        XCTAssert(output.containsString("\n\tone : 1.1"))
-        XCTAssert(output.containsString("\n\ttwo : 2.2"))
-        XCTAssert(output.containsString("\n\tthree : 3.3"))
-        XCTAssert(output.containsString("\n\tfour : 4.4"))
+        XCTAssert(output.contains("\n\tone : 1.1"))
+        XCTAssert(output.contains("\n\ttwo : 2.2"))
+        XCTAssert(output.contains("\n\tthree : 3.3"))
+        XCTAssert(output.contains("\n\tfour : 4.4"))
     }
 }

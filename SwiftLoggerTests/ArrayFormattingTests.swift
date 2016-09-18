@@ -13,7 +13,7 @@ class ArrayFormattingTests: BaseFormattingTests {
     
     func testFormatStringArray() {
         let stringArray = ["one", "two", "three", "four"]
-        let output = mockLoggingService.formatCollectionAsString(stringArray)
+        let output = stringArray.asString()
         
         let expectedString = "\n\tone\n\ttwo\n\tthree\n\tfour\n"
         
@@ -22,7 +22,7 @@ class ArrayFormattingTests: BaseFormattingTests {
     
     func testFormatIntArray() {
         let intArray = [1, 2, 3, 4]
-        let output = mockLoggingService.formatCollectionAsString(intArray)
+        let output = intArray.asString()
         
         let expectedString = "\n\t1\n\t2\n\t3\n\t4\n"
         
@@ -31,7 +31,7 @@ class ArrayFormattingTests: BaseFormattingTests {
     
     func testFormatUIntArray() {
         let uintArray = [UInt(1), UInt(2), UInt(3), UInt(4)]
-        let output = mockLoggingService.formatCollectionAsString(uintArray)
+        let output = uintArray.asString()
         
         let expectedString = "\n\t1\n\t2\n\t3\n\t4\n"
         
@@ -40,7 +40,7 @@ class ArrayFormattingTests: BaseFormattingTests {
     
     func testFormatFloatArray() {
         let floatArray = [Float(1.1), Float(2.2), Float(3.3), Float(4.4)]
-        let output = mockLoggingService.formatCollectionAsString(floatArray)
+        let output = floatArray.asString()
         
         let expectedString = "\n\t1.1\n\t2.2\n\t3.3\n\t4.4\n"
         
@@ -49,7 +49,7 @@ class ArrayFormattingTests: BaseFormattingTests {
     
     func testFormatDoubleArray() {
         let doubleArray = [Double(1.1), Double(2.2), Double(3.3), Double(4.4)]
-        let output = mockLoggingService.formatCollectionAsString(doubleArray)
+        let output = doubleArray.asString()
         
         let expectedString = "\n\t1.1\n\t2.2\n\t3.3\n\t4.4\n"
         
