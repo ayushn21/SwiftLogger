@@ -1,8 +1,18 @@
 language: objective-c
 osx_image: xcode8
-xcode_project: SwiftLogger.xcodeproj
-xcode_scheme: SwiftLogger
-xcode_sdk: iphonesimulator
+
+before_script:
+  - gem install xcpretty
+
+env:
+  global:
+  - PROJECT=SwiftLogger
+  - SCHEME=$PROJECT
+    matrix:
+    - DESTINATION="name=iPhone 6s"
+
+script: 
+  - xcodebuild -project "$PROJECT.xcodeproj" -scheme "$PROJECT" -sdk iphonesimulator -destination "$DESTINATION" build test | xcpretty && exit ${PIPESTATUS[0]}
 
 branches:
   only:
