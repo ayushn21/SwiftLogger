@@ -8,7 +8,7 @@ env:
   global:
   - PROJECT=SwiftLogger
   - SCHEME=$PROJECT
-    matrix:
+  matrix:
     - DESTINATION="name=iPhone 6s"
 
 script: 
